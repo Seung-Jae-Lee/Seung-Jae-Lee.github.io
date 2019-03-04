@@ -55,10 +55,10 @@ function startApp() {
   getValue();
 }
 function getLink(addr) {
-  return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
+  return '<a target="_blank" href=https://ropsten.etherscan.io/address/' + addr + '>' + addr +'</a>';
 }
 function getValue() {
-  simpleStorage.get(function(e,r){
+  SineoCoin.get(function(e,r){
     document.getElementById('storedData').innerHTML=r.toNumber();
   });
   web3.eth.getBlockNumber(function(e,r){
@@ -68,7 +68,7 @@ function getValue() {
 function setValue() {
   var newValue = document.getElementById('newValue').value;
   var txid
-  simpleStorage.set(newValue, function(e,r){
+  SineoCoin.set(newValue, function(e,r){
     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
     txid = r;
   });
