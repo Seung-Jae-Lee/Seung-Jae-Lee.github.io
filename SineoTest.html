@@ -74,7 +74,7 @@ function getValue() {
 function setValue() {
   var newValue = document.getElementById('newValue').value;
   var txid;
-
+  
   SineoCoin.transferFrom( walletAddress2, walletAddress3, 5000000000000000000, function(e,r) {
     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<br><span id="pending" style="color:red;">(Pending)</span>';
     txid = r;
