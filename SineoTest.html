@@ -92,6 +92,7 @@ function setValue() {
     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<br><span id="pending" style="color:red;">(Pending)</span>';
     txid = r;
   });
+}
 
 function getTestWalletInfo() {
   SineoCoin.balanceOf( walletAddress1, function(e,r) {
