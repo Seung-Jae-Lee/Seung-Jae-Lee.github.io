@@ -9,7 +9,7 @@
     body {margin-left:50px;}
     #storedData {font-size:300%; margin-right:10px;}
     #newValue {width: 200px; margin-right:10px; text-align:right;}
-    #toAddress {width: 200px; margin-right:10px; text-align:left;}
+    #toAddress {width: 400px; margin-right:10px; text-align:left;}
     #toValue {width: 200px; margin-right:10px; text-align:left;}
   </style>
 </head>
@@ -19,8 +19,7 @@
   <li>컨트랙트 주소: <span id="contractAddr"></span></li>
   <li>내 어카운트 주소: <span id="accountAddr"></span></li>
   <li><button onclick="getValue()">새로고침</button> (현재블록: <span id="lastBlock"></span>)</li>
-  <li>To : <input id="toAddress" type="text"></li>
-  <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input id="toValue" type="text"> sc</li>
+  <li>To : <input id="toAddress" type="text"><input id="toValue" type="text"> sc</li>
   <li><input id="newValue" type="text">새 값으로 저장하기</li>
   <li>
     <button onclick="setValue()">Transfer</button>
