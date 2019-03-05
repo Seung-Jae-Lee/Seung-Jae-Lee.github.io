@@ -81,15 +81,15 @@ function getValue() {
   });
 
   SineoCoin.balanceOf( walletAddress1, function(e,r) {
-    document.getElementById('testWallet1').innerHTML = walletAddress1 + " - " r;
+    document.getElementById('testWallet1').innerHTML = walletAddress1 + " - " + r;
   });
 
   SineoCoin.balanceOf( walletAddress2, function(e,r) {
-    document.getElementById('testWallet2').innerHTML = walletAddress2 + " - " r;
+    document.getElementById('testWallet2').innerHTML = walletAddress2 + " - " + r;
   });
 
   SineoCoin.balanceOf( walletAddress3, function(e,r) {
-    document.getElementById('testWallet3').innerHTML = walletAddress3 + " - " r;
+    document.getElementById('testWallet3').innerHTML = walletAddress3 + " - " + r;
   });
 }
 function setValue() {
