@@ -24,7 +24,6 @@
     value : <input id="toValue" type="text"> sc
   </li>
   <li>
-    <input id="newValue" type="text">
     <button onclick="setValue()">Transfer</button>
     <div id="result"></div>
   </li>
@@ -81,7 +80,7 @@ function getValue() {
   });
 }
 function setValue() {
-  var newValue = document.getElementById('newValue').value;
+  //var newValue = document.getElementById('newValue').value;
   var txid;
 
   //SineoCoin.transferFrom( walletAddress2, walletAddress3, 5000000000000000000, function(e,r) {
