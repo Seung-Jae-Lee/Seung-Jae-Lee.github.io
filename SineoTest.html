@@ -9,6 +9,8 @@
     body {margin-left:50px;}
     #storedData {font-size:300%; margin-right:10px;}
     #newValue {width: 200px; margin-right:10px; text-align:right;}
+    #toAddress {width: 200px; margin-right:10px; text-align:left;}
+    #toValue {width: 200px; margin-right:10px; text-align:left;}
   </style>
 </head>
 <body>
@@ -80,15 +82,10 @@ function setValue() {
   //var newValue = document.getElementById('newValue').value;
   var txid;
 
-  //SineoCoin.transferFrom( walletAddress2, walletAddress3, 5000000000000000000, function(e,r) {
   SineoCoin.transfer( walletAddress2, 5000000000000000000, function(e,r) {
     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<br><span id="pending" style="color:red;">(Pending)</span>';
     txid = r;
   });
-  //SineoCoin.set(newValue, function(e,r) {
-  //  document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
-  //  txid = r;
-  //});
 
   var filter = web3.eth.filter('latest');
   filter.watch(function(e, r) {
