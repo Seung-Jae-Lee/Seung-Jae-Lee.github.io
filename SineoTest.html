@@ -26,8 +26,8 @@
 <script>
 var contractAddress = '0xCc61A7219D761Ab202dF85Fb59c5B6D11Beb3cCc';
 var walletAddress1 = "0xBae7CD5E150Ca04397ABa431993d52010110dA48"
-let walletAddress2 = "0x8c2f052400422d1aBE10f8Bd9b14C4B55AB4C595"
-let walletAddress3 = "0xe068db601B34c918CBBe0b37D827b6FEa0a1578a"
+var walletAddress2 = "0x2C6D92c8034062037064e8626BeDd74BF979817d"
+var walletAddress3 = "0xe068db601B34c918CBBe0b37D827b6FEa0a1578a"
 
 var private_key1 = "D2AEF8F112E1C595133B485CFE13E4A952B00E986423B93D145D62673C096849"
 var private_key2 = "39BEEEBDE445801477FEF877032C75F3879B9C9667AA86A5F7AE4264D2724C56"
@@ -74,8 +74,9 @@ function getValue() {
 function setValue() {
   var newValue = document.getElementById('newValue').value;
   var txid;
-  
-  SineoCoin.transferFrom( walletAddress2, walletAddress3, 5000000000000000000, function(e,r) {
+
+  //SineoCoin.transferFrom( walletAddress2, walletAddress3, 5000000000000000000, function(e,r) {
+  SineoCoin.transfer( walletAddress2, 5000000000000000000, function(e,r) {
     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<br><span id="pending" style="color:red;">(Pending)</span>';
     txid = r;
   });
