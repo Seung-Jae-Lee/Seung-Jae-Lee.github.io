@@ -80,21 +80,6 @@ function getValue() {
     document.getElementById('lastBlock').innerHTML = r;
   });
 
-  getTestWalletInfo();
-}
-function setValue() {
-  var toAddress = document.getElementById('toAddress').value;
-  var sc = document.getElementById('toValue').value * 1000000000000000000;
-  var txid;
-
-
-  SineoCoin.transfer( toAddress, sc, function(e,r) {
-    document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<br><span id="pending" style="color:red;">(Pending)</span>';
-    txid = r;
-  });
-}
-
-function getTestWalletInfo() {
   SineoCoin.balanceOf( walletAddress1, function(e,r) {
     document.getElementById('testWallet1').innerHTML = walletAddress1 + " - " + r;
   });
@@ -107,6 +92,18 @@ function getTestWalletInfo() {
     document.getElementById('testWallet3').innerHTML = walletAddress3 + " - " + r;
   });
 }
+function setValue() {
+  var toAddress = document.getElementById('toAddress').value;
+  var sc = document.getElementById('toValue').value * 1000000000000000000;
+  var txid;
+
+
+  SineoCoin.transfer( toAddress, sc, function(e,r) {
+    document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<br><span id="pending" style="color:red;">(Pending)</span>';
+    txid = r;
+  });
+
+
 /*
   SineoCoin.transferFrom( walletAddress3, toAddress, 5000000000000000000, function(e,r) {
     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<br><span id="pending" style="color:red;">(Pending)</span>';
@@ -123,8 +120,17 @@ function getTestWalletInfo() {
         document.getElementById('storedData').style.cssText ='color:green; font-size:300%;';
         filter.stopWatching();
 
-        getTestWalletInfo();
+        SineoCoin.balanceOf( walletAddress1, function(e,r) {
+          document.getElementById('testWallet1').innerHTML = walletAddress1 + " - " + r;
+        });
 
+        SineoCoin.balanceOf( walletAddress2, function(e,r) {
+          document.getElementById('testWallet2').innerHTML = walletAddress2 + " - " + r;
+        });
+
+        SineoCoin.balanceOf( walletAddress3, function(e,r) {
+          document.getElementById('testWallet3').innerHTML = walletAddress3 + " - " + r;
+        });
       }
    });
  });
