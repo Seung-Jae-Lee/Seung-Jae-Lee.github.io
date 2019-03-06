@@ -107,7 +107,8 @@ function setValue() {
   });
 */
 
-
+  var fromAddress = walletAddress1;
+  var toAddress = walletAddress2;
     // 1. nonce 값 조회
   web3.eth.getTransactionCount(fromAddress, function(err, nonce) {
 
@@ -115,9 +116,9 @@ function setValue() {
     const txParams = {
       nonce: web3.toHex(nonce),
       to: toAddress,
-      value: web3.toHex(web3.toWei(0.1, 'ether').toNumber()), // 0.1 이더
+      value: web3.toHex(web3.toWei(1, 'ether').toNumber()), // 0.1 이더
       gasPrice: web3.toHex(web3.toWei(1, 'Gwei').toNumber()), // 가스 가격
-      gasLimit: web3.toHex(300000), // 가스 최대 사용량
+      gasLimit: web3.toHex(100000), // 가스 최대 사용량
       // EIP 155 chainId - mainnet: 1, ropsten: 3
       chainId: 3, //네트워크 ID(3=Ropsten Tesetnet)
     }
