@@ -112,7 +112,7 @@ function setValue() {
   var fromAddress = '0x'+ ethereumjs.Util.privateToAddress(privKey).toString('hex');
 
    //= web3.eth.getTransactionCount(fromAddress); // 트랜잭션 Nonce값 조회
-  web3.eth.getTransactionCount( privKey, function(e,r) {
+  web3.eth.getTransactionCount( privateKey1, function(e,r) {
     nonce = r;
   });
 
