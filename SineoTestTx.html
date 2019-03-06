@@ -124,6 +124,13 @@ function setValue() {
 
   gasLimit = web3.eth.gasLimit;
 
+  var rawTx = {
+    nonce : web3.toHex(nonce),
+    gasPrice : web3.toHex(gasPrice),
+    gasLimit : web3.toHex( 100000 ),
+    data : 0,
+    chainId : 3,
+  }
 /*
   var gasPrice = web3.eth.gasPrice; // 네트워크 가스 가격 조회
   const rawTx = {
