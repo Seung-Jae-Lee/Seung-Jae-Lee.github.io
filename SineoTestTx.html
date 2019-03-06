@@ -117,9 +117,7 @@ function setValue() {
     nonce = r;
   });
 
-  web3.eth.getGasPrice( function(e,r) {
-    gasPrice = r;
-  });
+  gasPrice = web3.eth.gasPrice;
 
 /*
   var gasPrice = web3.eth.gasPrice; // 네트워크 가스 가격 조회
