@@ -100,10 +100,12 @@ function setValue() {
   var sc = document.getElementById('toValue').value * 1000000000000000000;
   var txid;
 
+/*
   SineoCoin.transfer( toAddress, sc, function(e,r) {
     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<br><span id="pending" style="color:red;">(Pending)</span>';
     txid = r;
   });
+*/
 
   var filter = web3.eth.filter('latest');
   filter.watch(function(e, r) {
