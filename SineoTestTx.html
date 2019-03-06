@@ -109,7 +109,10 @@ function setValue() {
   var privKey = ethereumjs.Buffer.Buffer( privateKey1, 'hex');
   var fromAddress = '0x'+ ethereumjs.Util.privateToAddress(privKey).toString('hex');
 
-  var nonce = web3.eth.getTransactionCount(fromAddress); // 트랜잭션 Nonce값 조회
+  var nonce; //= web3.eth.getTransactionCount(fromAddress); // 트랜잭션 Nonce값 조회
+  web3.eth.getTransactionCount( function(e,r) {
+    nonce = r;
+  });
   var gasPrice = web3.eth.gasPrice; // 네트워크 가스 가격 조회
   const rawTx = {
     nonce: web3.toHex(nonce),
@@ -118,7 +121,7 @@ function setValue() {
     data: txInputData,               // 컨트랙트 excute 함수 호출 데이터
     chainId: 3, //네트워크 ID
   }
-  
+
   var filter = web3.eth.filter('latest');
   filter.watch(function(e, r) {
     getValue();
