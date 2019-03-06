@@ -106,8 +106,8 @@ function setValue() {
     txid = r;
   });
 */
-  let ethUtil = new ethereumjs.Tx(txParams);
-  var fromAddress = '0x'+ ethUtil.privateToAddress(privateKey1).toString('hex');
+
+  var fromAddress = '0x'+ ethereumjs.Util.privateToAddress(privateKey1).toString('hex');
 
   var filter = web3.eth.filter('latest');
   filter.watch(function(e, r) {
