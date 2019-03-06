@@ -108,14 +108,14 @@ function setValue() {
     txid = r;
   });
 */
-  var privKey = ethereumjs.Buffer.Buffer( privateKey1, 'hex');
-  var fromAddress = '0x'+ ethereumjs.Util.privateToAddress(privateKey1).toString('hex');
+  //var privKey = ethereumjs.Buffer.Buffer( privateKey1, 'hex');
+  //var fromAddress = '0x'+ ethereumjs.Util.privateToAddress(privateKey1).toString('hex');
 
    //= web3.eth.getTransactionCount(fromAddress); // 트랜잭션 Nonce값 조회
-  web3.eth.getTransactionCount( fromAddress, function(e,r) {
+  web3.eth.getTransactionCount( walletAddress1, function(e,r) {
     nonce = r;
   });
-
+  var gasPrice = web3.eth.gasPrice;
 /*
   var gasPrice = web3.eth.gasPrice; // 네트워크 가스 가격 조회
   const rawTx = {
