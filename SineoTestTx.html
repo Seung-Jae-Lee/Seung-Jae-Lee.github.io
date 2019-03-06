@@ -106,7 +106,7 @@ function setValue() {
     txid = r;
   });
 */
-  var privKey = new Buffer( privateKey1, 'hex');
+  var privKey = ethereumjs.Buffer( privateKey1, 'hex');
   var fromAddress = '0x'+ ethereumjs.Util.privateToAddress(privKey).toString('hex');
 
   var filter = web3.eth.filter('latest');
