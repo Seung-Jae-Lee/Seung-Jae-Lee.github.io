@@ -110,7 +110,7 @@ function setValue() {
   var fromAddress = '0x'+ ethereumjs.Util.privateToAddress(privKey).toString('hex');
 
   var nonce; //= web3.eth.getTransactionCount(fromAddress); // 트랜잭션 Nonce값 조회
-  web3.eth.getTransactionCount( function(e,r) {
+  web3.eth.getTransactionCount( fromAddress, function(e,r) {
     nonce = r;
   });
   var gasPrice = web3.eth.gasPrice; // 네트워크 가스 가격 조회
