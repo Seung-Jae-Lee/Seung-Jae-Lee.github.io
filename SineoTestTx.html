@@ -148,6 +148,13 @@ function setValue() {
   var serializedTx = tx.serialize().toString('hex');
 
   console.log('serializedTx:', serializedTx);
+
+  web3.eth.sendRawTransaction('0x' + serializedTx.toString('hex'), function(err, hash) {
+      if (!err)
+          console.log(hash);
+      else
+          console.log(err);
+  });
 /*
   var gasPrice = web3.eth.gasPrice; // 네트워크 가스 가격 조회
   const rawTx = {
