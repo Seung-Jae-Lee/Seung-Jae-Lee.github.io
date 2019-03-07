@@ -132,9 +132,6 @@ function setValue() {
   gasLimit = web3.eth.gasLimit;
 
   rawTx = {
-    //nonce : web3.toHex(nonce),
-    //gasPrice : web3.toHex(gasPrice),
-    //gasLimit : web3.toHex( 100000 ),
     from: walletAddress1,
     nonce: web3.toHex(nonce),
     gasPrice: web3.toHex(gasPrice),
@@ -145,6 +142,12 @@ function setValue() {
     chainId: 0x03
   }
 
+  var pKey = new ethereumjs.Buffer.Buffer(privateKey1, 'hex');
+  var tx = new ethereumjs.Tx(rawTx);
+  tx.sign(pKey);
+  var serializedTx = tx.serialize().toString('hex');
+
+  console.log('serializedTx:', serializedTx);
 /*
   var gasPrice = web3.eth.gasPrice; // 네트워크 가스 가격 조회
   const rawTx = {
