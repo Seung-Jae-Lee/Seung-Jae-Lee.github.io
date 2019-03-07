@@ -178,7 +178,9 @@ function setValue() {
             document.getElementById('testWallet2').innerHTML = walletAddress2 + "-" + r;
             SineoCoin.balanceOf( walletAddress3, function(e,r) {
               document.getElementById('testWallet3').innerHTML = walletAddress3 + "-" + r;
-              clearInterval(timer);
+              setTimeOut( function() {
+                  clearInterval(timer);
+              }, 300);              
             });
           });
         });
