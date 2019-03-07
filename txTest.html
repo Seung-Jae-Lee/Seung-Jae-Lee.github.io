@@ -15,6 +15,7 @@ console.log('typeof ethereumjs.Buffer:',        (typeof ethereumjs.Buffer))
 console.log('typeof ethereumjs.Buffer.Buffer:', (typeof ethereumjs.Buffer.Buffer))
 
 
+
 {
   let privateKey = new ethereumjs.Buffer.Buffer('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
   let txParams = {
@@ -30,6 +31,40 @@ console.log('typeof ethereumjs.Buffer.Buffer:', (typeof ethereumjs.Buffer.Buffer
   let serializedTx = tx.serialize().toString('hex')
 
   console.log('serializedTx:', serializedTx)
+
+
+
+
+
+var count = web3.eth.getTransactionCount("0x26...");
+var abiArray = JSON.parse(fs.readFileSync('mycoin.json', 'utf-8'));
+var contractAddress = "0x8...";
+var contract = web3.eth.contract(abiArray).at(contractAddress);
+var rawTransaction = {
+    "from": "0x26...",
+    "nonce": web3.toHex(count),
+    "gasPrice": "0x04e3b29200",
+    "gasLimit": "0x7458",
+    "to": contractAddress,
+    "value": "0x0",
+    "data": contract.transfer.getData("0xCb...", 10, {from: "0x26..."}),
+    "chainId": 0x03
+};
+
+var privKey = new Buffer('fc3...', 'hex');
+var tx = new Tx(rawTransaction);
+
+tx.sign(privKey);
+var serializedTx = tx.serialize();
+
+web3.eth.sendRawTransaction('0x' + serializedTx.toString('hex'), function(err, hash) {
+    if (!err)
+        console.log(hash);
+    else
+        console.log(err);
+});
+
+
 }
 
 </script>
