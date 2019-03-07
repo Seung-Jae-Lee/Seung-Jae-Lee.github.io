@@ -145,11 +145,11 @@ function setValue() {
   var pKey = new ethereumjs.Buffer.Buffer(privateKey1, 'hex');
   var tx = new ethereumjs.Tx(rawTx);
   tx.sign(pKey);
-  var serializedTx = tx.serialize().toString('hex');
+  var serializedTx = tx.serialize();
 
   console.log('serializedTx:', serializedTx);
 
-  web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
+  web3.eth.sendRawTransaction('0x' + serializedTx.toString('hex'), function(err, hash) {
       if (!err)
           console.log(hash);
       else
