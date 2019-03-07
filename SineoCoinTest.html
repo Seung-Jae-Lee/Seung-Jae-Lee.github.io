@@ -169,25 +169,27 @@ function setValue() {
     getValue();
     web3.eth.getTransaction(txid, function(e,r) {
       if (r != null && r.blockNumber > 0) {
-        document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
-        document.getElementById('pending').style.cssText ='color:green;';
-
         SineoCoin.balanceOf( walletAddress1, function(e,r) {
           document.getElementById('testWallet1').innerHTML = walletAddress1 + "-" + r;
           SineoCoin.balanceOf( walletAddress2, function(e,r) {
             document.getElementById('testWallet2').innerHTML = walletAddress2 + "-" + r;
             SineoCoin.balanceOf( walletAddress3, function(e,r) {
               document.getElementById('testWallet3').innerHTML = walletAddress3 + "-" + r;
-              setTimeout( function() {
-                  clearInterval(timer);
-              }, 300);
+              //setTimeout( function() {
+              document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
+              document.getElementById('pending').style.cssText ='color:green;';
+
+              clearInterval(timer);
+              //}, 300);
             });
           });
         });
 
+
       }
     });
   }, 1000);
+
 }
 </script>
 </html>
