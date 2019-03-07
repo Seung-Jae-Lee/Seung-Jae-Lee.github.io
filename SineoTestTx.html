@@ -104,46 +104,50 @@ function setValue() {
 
   var rawTx;
 
+  //nonce = web3.eth.getTransactionCount.call( walletAddress1 );
+  //gasPrice = web3.getGasPrice.call();
+
   web3.eth.getTransactionCount( walletAddress1, function(e,r) {
     nonce = r;
     console.log('nonce:', nonce);
+
+    web3.eth.getGasPrice( function(e,r) {
+      gasPrice = r;
+      console.log('gasPrice:', gasPrice);
+
+      gasLimit = web3.eth.gasLimit;
+
+      rawTx = {
+        from: walletAddress1,
+        nonce: web3.toHex(nonce),
+        gasPrice: web3.toHex(gasPrice),
+        gasLimit: web3.toHex( 100000 ),
+        to: contractAddress,
+        value: "0x0",
+        data: SineoCoin.transfer.getData(walletAddress2, 1000000000000000000, {from: walletAddress1}),
+        chainId: 0x03
+      }
+      console.log('rawTx:', rawTx);
+
+      var pKey = new ethereumjs.Buffer.Buffer(privateKey1, 'hex');
+      var tx = new ethereumjs.Tx(rawTx);
+      tx.sign(pKey);
+      var serializedTx = tx.serialize().toString('hex');
+
+      console.log('serializedTx:', serializedTx);
+
+      web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
+          if (!err)
+              console.log(true);
+          else
+              console.log(false);
+      });
+    });
   });
 
-  nonce = web3.eth.getTransactionCount.call( walletAddress1 );
-  gasPrice = web3.getGasPrice.call();
 
-  web3.eth.getGasPrice( function(e,r) {
-    gasPrice = r;
-    console.log('gasPrice:', gasPrice);
-  });
 
-  gasLimit = web3.eth.gasLimit;
 
-  rawTx = {
-    from: walletAddress1,
-    nonce: web3.toHex(nonce),
-    gasPrice: web3.toHex(gasPrice),
-    gasLimit: web3.toHex( 100000 ),
-    to: contractAddress,
-    value: "0x0",
-    data: SineoCoin.transfer.getData(walletAddress2, 1000000000000000000, {from: walletAddress1}),
-    chainId: 0x03
-  }
-  console.log('rawTx:', rawTx);
-
-  var pKey = new ethereumjs.Buffer.Buffer(privateKey1, 'hex');
-  var tx = new ethereumjs.Tx(rawTx);
-  tx.sign(pKey);
-  var serializedTx = tx.serialize().toString('hex');
-
-  console.log('serializedTx:', serializedTx);
-
-  web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
-      if (!err)
-          console.log(true);
-      else
-          console.log(false);
-  });
 /*
   var gasPrice = web3.eth.gasPrice; // 네트워크 가스 가격 조회
   const rawTx = {
