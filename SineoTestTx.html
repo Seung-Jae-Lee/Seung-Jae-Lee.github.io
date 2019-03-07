@@ -9,6 +9,7 @@
     body {margin-left:50px;}
     #storedData {font-size:300%; margin-right:10px;}
     #newValue {width: 200px; margin-right:10px; text-align:right;}
+    #fromAddress {width: 400px; margin-right:10px; text-align:left;}
     #toAddress {width: 400px; margin-right:10px; text-align:left;}
     #toValue {width: 200px; margin-right:10px; text-align:left;}
   </style>
@@ -19,9 +20,9 @@
   <li>컨트랙트 주소: <span id="contractAddr"></span></li>
   <li>내 어카운트 주소: <span id="accountAddr"></span></li>
   <li>현재블록: <span id="lastBlock"></span></li>
-  <li>
-    To : <input id="toAddress" type="text">
-    <input id="toValue" type="text"> sc &nbsp;&nbsp;&nbsp;&nbsp;
+  <li>From : <input id="fromAddress" type="text"></li>
+  <li>To : <input id="toAddress" type="text"></li>
+  <li><input id="toValue" type="text"> sc &nbsp;&nbsp;&nbsp;&nbsp;
     <button onclick="setValue()">Transfer</button>
     <div id="result"></div>
   </li>
@@ -124,8 +125,8 @@ function setValue() {
         gasLimit: web3.toHex( 100000 ),
         to: contractAddress,
         value: "0x0",
-        //data: SineoCoin.transfer.getData(walletAddress2, 1000000000000000000, {from: walletAddress1}),
-        data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
+        data: SineoCoin.transfer.getData(walletAddress2, 1000000000000000000, {from: walletAddress1}),
+        //data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
         chainId: 0x03
       }
       console.log('rawTx:', rawTx);
