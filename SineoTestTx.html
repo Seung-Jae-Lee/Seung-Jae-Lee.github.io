@@ -109,9 +109,9 @@ function setValue() {
     console.log('nonce:', nonce);
   });
 
-  nonce = web3.eth.getTransactionCount( walletAddress1 );
-  gasPrice = web3.getGasPrice();
-  
+  nonce = web3.eth.getTransactionCount( walletAddress1 ).call;
+  gasPrice = web3.getGasPrice().call;
+
   web3.eth.getGasPrice( function(e,r) {
     gasPrice = r;
     console.log('gasPrice:', gasPrice);
