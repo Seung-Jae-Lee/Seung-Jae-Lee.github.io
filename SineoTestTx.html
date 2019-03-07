@@ -142,6 +142,8 @@ function setValue() {
     chainId: 0x03
   }
 
+  console.log('nonce:', nonce);
+  console.log('gasPrice:', gasPrice);
   console.log('rawTx:', rawTx);
 
   var pKey = new ethereumjs.Buffer.Buffer(privateKey1, 'hex');
