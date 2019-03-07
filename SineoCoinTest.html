@@ -184,8 +184,17 @@ function setValue() {
       if (r != null && r.blockNumber > 0) {
         document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
         document.getElementById('pending').style.cssText ='color:green;';
-        getWalletInfo();
-        clearInterval(timer);
+
+        SineoCoin.balanceOf( walletAddress1, function(e,r) {
+          document.getElementById('testWallet1').innerHTML = walletAddress1 + " - " + r;
+          SineoCoin.balanceOf( walletAddress2, function(e,r) {
+            document.getElementById('testWallet2').innerHTML = walletAddress2 + " - " + r;
+            SineoCoin.balanceOf( walletAddress3, function(e,r) {
+              document.getElementById('testWallet3').innerHTML = walletAddress3 + " - " + r;
+              clearInterval(timer);
+            });
+          });
+        });
       }
     });
   }, 1000);
