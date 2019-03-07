@@ -109,6 +109,9 @@ function setValue() {
     console.log('nonce:', nonce);
   });
 
+  nonce = web3.eth.getTransactionCount( walletAddress1 );
+  gasPrice = web3.getGasPrice();
+  
   web3.eth.getGasPrice( function(e,r) {
     gasPrice = r;
     console.log('gasPrice:', gasPrice);
@@ -125,7 +128,7 @@ function setValue() {
     value: "0x0",
     data: SineoCoin.transfer.getData(walletAddress2, 1000000000000000000, {from: walletAddress1}),
     chainId: 0x03
-  }  
+  }
   console.log('rawTx:', rawTx);
 
   var pKey = new ethereumjs.Buffer.Buffer(privateKey1, 'hex');
