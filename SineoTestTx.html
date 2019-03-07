@@ -147,6 +147,8 @@ function setValue() {
 
       web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
           if (!err)
+              document.getElementById('result').innerHTML = 'Transaction id: ' + hash + '<br><span id="pending" style="color:red;">(Pending)</span>';
+              txid = hash;
               console.log(true);
           else
               console.log(false);
