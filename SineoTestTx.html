@@ -99,27 +99,19 @@ function setValue() {
   var toAddress = document.getElementById('toAddress').value;
   var sc = document.getElementById('toValue').value * 1000000000000000000;
   var txid;
-//  var from;
   var nonce;
   var gasPrice;
-//  var gasLimit;
-//  var to;
-//  var value;
-//  var data;
-//  var chainId;
+
   var rawTx;
-/*
-  SineoCoin.transfer( toAddress, sc, function(e,r) {
-    document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<br><span id="pending" style="color:red;">(Pending)</span>';
-    txid = r;
-  });
-*/
+
   web3.eth.getTransactionCount( walletAddress1, function(e,r) {
     nonce = r;
+    console.log('nonce:', nonce);
   });
 
   web3.eth.getGasPrice( function(e,r) {
     gasPrice = r;
+    console.log('gasPrice:', gasPrice);
   });
 
   gasLimit = web3.eth.gasLimit;
@@ -133,10 +125,7 @@ function setValue() {
     value: "0x0",
     data: SineoCoin.transfer.getData(walletAddress2, 1000000000000000000, {from: walletAddress1}),
     chainId: 0x03
-  }
-
-  console.log('nonce:', nonce);
-  console.log('gasPrice:', gasPrice);
+  }  
   console.log('rawTx:', rawTx);
 
   var pKey = new ethereumjs.Buffer.Buffer(privateKey1, 'hex');
