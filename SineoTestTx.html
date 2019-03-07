@@ -153,9 +153,9 @@ function setValue() {
 
   web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
       if (!err)
-          console.log(hash);
+          console.log(true);
       else
-          console.log(err);
+          console.log(false);
   });
 /*
   var gasPrice = web3.eth.gasPrice; // 네트워크 가스 가격 조회
