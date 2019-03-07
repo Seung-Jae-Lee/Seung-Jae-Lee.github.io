@@ -128,14 +128,14 @@ function setValue() {
     //nonce : web3.toHex(nonce),
     //gasPrice : web3.toHex(gasPrice),
     //gasLimit : web3.toHex( 100000 ),
-    "from": walletAddress1,
-    "nonce": web3.toHex(nonce),
-    "gasPrice": web3.toHex(gasPrice),
-    "gasLimit": web3.toHex( 100000 ),
-    "to": contractAddress,
-    "value": "0x0",
-    "data": SineoCoin.transfer.getData(walletAddress2, 10, {from: walletAddress1}),
-    "chainId": 0x03
+    from: walletAddress1,
+    nonce: web3.toHex(nonce),
+    gasPrice: web3.toHex(gasPrice),
+    gasLimit: web3.toHex( 100000 ),
+    to: contractAddress,
+    value: "0x0",
+    data: SineoCoin.transfer.getData(walletAddress2, 10, {from: walletAddress1}),
+    chainId: 0x03
   }
 
 /*
