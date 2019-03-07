@@ -118,18 +118,19 @@ function setValue() {
       gasLimit = web3.eth.gasLimit;
 
       rawTx = {
-        from: walletAddress1,
+        from: walletAddress2,
         nonce: web3.toHex(nonce),
         gasPrice: web3.toHex(gasPrice),
         gasLimit: web3.toHex( 100000 ),
         to: contractAddress,
         value: "0x0",
-        data: SineoCoin.transfer.getData(walletAddress2, 1000000000000000000, {from: walletAddress1}),
+        //data: SineoCoin.transfer.getData(walletAddress2, 1000000000000000000, {from: walletAddress1}),
+        data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress1}),
         chainId: 0x03
       }
       console.log('rawTx:', rawTx);
 
-      var pKey = new ethereumjs.Buffer.Buffer(privateKey1, 'hex');
+      var pKey = new ethereumjs.Buffer.Buffer(privateKey2, 'hex');
       var tx = new ethereumjs.Tx(rawTx);
       tx.sign(pKey);
       var serializedTx = tx.serialize().toString('hex');
