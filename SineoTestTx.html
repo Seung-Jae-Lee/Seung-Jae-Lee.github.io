@@ -18,7 +18,6 @@
 <h3>SineoCoin Test Page</h3>
 <ul>
   <li>컨트랙트 주소: <span id="contractAddr"></span></li>
-  <li>내 어카운트 주소: <span id="accountAddr"></span></li>
   <li>현재블록: <span id="lastBlock"></span></li>
   <li>From : <input id="fromAddress" type="text"></li>
   <li>To : <input id="toAddress" type="text"></li>
@@ -65,9 +64,7 @@ function startApp() {
   SineoCoinContract = web3.eth.contract(abi);
   SineoCoin = SineoCoinContract.at(contractAddress);
   document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
-  web3.eth.getAccounts(function(e,r){
-    document.getElementById('accountAddr').innerHTML = getLink(r[0]);
-  });
+  
   getValue();
 }
 function getLink(addr) {
@@ -104,10 +101,6 @@ function setValue() {
   var gasPrice;
 
   var rawTx;
-
-  //nonce = web3.eth.getTransactionCount.call( walletAddress1 );
-  //gasPrice = web3.getGasPrice.call();
-
   web3.eth.getTransactionCount( walletAddress2, function(e,r) {
     nonce = r;
     console.log('nonce:', nonce);
@@ -161,23 +154,6 @@ function setValue() {
      });
     });
   });
-
-
-
-
-/*
-  var gasPrice = web3.eth.gasPrice; // 네트워크 가스 가격 조회
-  const rawTx = {
-    nonce: web3.toHex(nonce),
-    gasPrice: web3.toHex(gasPrice),  // 가스 1개당 가격(wei 단위)
-    gasLimit: web3.toHex(3000000),   // 가스 최대 사용량
-    data: txInputData,               // 컨트랙트 excute 함수 호출 데이터
-    chainId: 3, //네트워크 ID
-  }
-*/
-
-
-
 }
 </script>
 </html>
