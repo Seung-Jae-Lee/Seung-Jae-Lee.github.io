@@ -134,7 +134,9 @@ function setValue() {
         //data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
         chainId: 0x03
       }
+      console.log('sc:', sc);
       console.log('rawTx:', rawTx);
+
 
       var pKey = new ethereumjs.Buffer.Buffer(currentPrivateKey, 'hex');
       var tx = new ethereumjs.Tx(rawTx);
