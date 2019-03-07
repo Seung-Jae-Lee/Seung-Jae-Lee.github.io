@@ -107,7 +107,7 @@ function setValue() {
   //nonce = web3.eth.getTransactionCount.call( walletAddress1 );
   //gasPrice = web3.getGasPrice.call();
 
-  web3.eth.getTransactionCount( walletAddress1, function(e,r) {
+  web3.eth.getTransactionCount( walletAddress2, function(e,r) {
     nonce = r;
     console.log('nonce:', nonce);
 
