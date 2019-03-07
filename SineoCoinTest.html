@@ -75,15 +75,15 @@ function getLink(addr) {
 
 function getWalletInfo() {
   SineoCoin.balanceOf( walletAddress1, function(e,r) {
-    document.getElementById('testWallet1').innerHTML = walletAddress1 + "-" + (r * 0.0000000000000000001);
+    document.getElementById('testWallet1').innerHTML = walletAddress1 + "-" + (r * 0.000000000000000001);
   });
 
   SineoCoin.balanceOf( walletAddress2, function(e,r) {
-    document.getElementById('testWallet2').innerHTML = walletAddress2 + "-" + (r * 0.0000000000000000001);
+    document.getElementById('testWallet2').innerHTML = walletAddress2 + "-" + (r * 0.000000000000000001);
   });
 
   SineoCoin.balanceOf( walletAddress3, function(e,r) {
-    document.getElementById('testWallet3').innerHTML = walletAddress3 + "-" + (r * 0.0000000000000000001);
+    document.getElementById('testWallet3').innerHTML = walletAddress3 + "-" + (r * 0.000000000000000001);
   });
 }
 
@@ -186,11 +186,11 @@ function setValue() {
         document.getElementById('pending').style.cssText ='color:green;';
 
         SineoCoin.balanceOf( walletAddress1, function(e,r) {
-          document.getElementById('testWallet1').innerHTML = walletAddress1 + "-" + (r * 0.0000000000000000001);
+          document.getElementById('testWallet1').innerHTML = walletAddress1 + "-" + (r * 0.000000000000000001);
           SineoCoin.balanceOf( walletAddress2, function(e,r) {
-            document.getElementById('testWallet2').innerHTML = walletAddress2 + "-" + (r * 0.0000000000000000001);
+            document.getElementById('testWallet2').innerHTML = walletAddress2 + "-" + (r * 0.000000000000000001);
             SineoCoin.balanceOf( walletAddress3, function(e,r) {
-              document.getElementById('testWallet3').innerHTML = walletAddress3 + "-" + (r * 0.0000000000000000001);
+              document.getElementById('testWallet3').innerHTML = walletAddress3 + "-" + (r * 0.000000000000000001);
               clearInterval(timer);
             });
           });
