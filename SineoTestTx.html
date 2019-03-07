@@ -138,7 +138,7 @@ function setValue() {
     gasLimit: web3.toHex( 100000 ),
     to: contractAddress,
     value: "0x0",
-    data: SineoCoin.transfer.getData(walletAddress2, 10, {from: walletAddress1}),
+    data: SineoCoin.transfer.getData(walletAddress2, 5*1000000000000000000, {from: walletAddress1}),
     chainId: 0x03
   }
 
