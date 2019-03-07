@@ -149,7 +149,7 @@ function setValue() {
 
   console.log('serializedTx:', serializedTx);
 
-  web3.eth.sendRawTransaction('0x' + serializedTx.toString('hex'), function(err, hash) {
+  web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
       if (!err)
           console.log(hash);
       else
