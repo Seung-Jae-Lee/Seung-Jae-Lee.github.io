@@ -125,7 +125,7 @@ function setValue() {
         to: contractAddress,
         value: "0x0",
         //data: SineoCoin.transfer.getData(walletAddress2, 1000000000000000000, {from: walletAddress1}),
-        data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress1}),
+        data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
         chainId: 0x03
       }
       console.log('rawTx:', rawTx);
