@@ -64,7 +64,7 @@ function startApp() {
   SineoCoinContract = web3.eth.contract(abi);
   SineoCoin = SineoCoinContract.at(contractAddress);
   document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
-  
+
   getValue();
 }
 function getLink(addr) {
@@ -94,14 +94,26 @@ function getValue() {
 }
 
 function setValue() {
+  var fromAddress = document.getElementById('fromAddress').value;
   var toAddress = document.getElementById('toAddress').value;
+  var currentPrivateKey;
   var sc = document.getElementById('toValue').value * 1000000000000000000;
   var txid;
   var nonce;
   var gasPrice;
-
   var rawTx;
-  web3.eth.getTransactionCount( walletAddress2, function(e,r) {
+
+  if( fromAddress == walletAddress1 ) {
+    currentPrivateKey = privateKey1;
+  }
+  else if (fromAddress == walletAddress2) {
+    currentPrivateKey = privateKey2;
+  }
+  else if (fromAddress == walletAddress3) {
+    currentPrivateKey = privateKey3;
+  }
+
+  web3.eth.getTransactionCount( fromAddress, function(e,r) {
     nonce = r;
     console.log('nonce:', nonce);
 
@@ -112,19 +124,19 @@ function setValue() {
       gasLimit = web3.eth.gasLimit;
 
       rawTx = {
-        from: walletAddress2,
+        from: fromAddress,
         nonce: web3.toHex(nonce),
         gasPrice: web3.toHex(gasPrice),
         gasLimit: web3.toHex( 100000 ),
         to: contractAddress,
         value: "0x0",
-        data: SineoCoin.transfer.getData(walletAddress2, 1000000000000000000, {from: walletAddress1}),
+        data: SineoCoin.transfer.getData(fromAddress, sc, {from: toAddress}),
         //data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
         chainId: 0x03
       }
       console.log('rawTx:', rawTx);
 
-      var pKey = new ethereumjs.Buffer.Buffer(privateKey2, 'hex');
+      var pKey = new ethereumjs.Buffer.Buffer(currentPrivateKey, 'hex');
       var tx = new ethereumjs.Tx(rawTx);
       tx.sign(pKey);
       var serializedTx = tx.serialize().toString('hex');
