@@ -71,7 +71,12 @@ function startApp() {
   SineoCoin = SineoCoinContract.at(contractAddress);
   document.getElementById('contractAddr').innerHTML = getContractLink(contractAddress);
 
-  getValue();
+
+
+  timer_balance_update = setInterval( function() {
+    getValue();
+    getWalletInfo();
+  });
 }
 
 function getContractLink(addr) {
@@ -81,6 +86,20 @@ function getContractLink(addr) {
 function getValue() {
   web3.eth.getBlockNumber( function(e,r){
     document.getElementById('lastBlock').innerHTML = r;
+  });
+}
+
+function getWalletInfo() {
+  SineoCoin.balanceOf( walletAddress1, function(e,r) {
+    document.getElementById('testWallet1').innerHTML = "-" + r;
+  });
+
+  SineoCoin.balanceOf( walletAddress2, function(e,r) {
+    document.getElementById('testWallet2').innerHTML = "-" + r;
+  });
+
+  SineoCoin.balanceOf( walletAddress3, function(e,r) {
+    document.getElementById('testWallet3').innerHTML = "-" + r;
   });
 }
 
