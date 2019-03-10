@@ -104,8 +104,8 @@ function getWalletInfo() {
 }
 
 function getPrivateKey(fromAddress) {
-  var privateKey;
-
+  var currentPrivateKey;
+  
   if( fromAddress == walletAddress1 ) {
     currentPrivateKey = privateKey1;
   }
@@ -116,7 +116,7 @@ function getPrivateKey(fromAddress) {
     currentPrivateKey = privateKey3;
   }
 
-  return privateKey;
+  return currentPrivateKey;
 }
 
 function setValue() {
