@@ -11,14 +11,16 @@
     #newValue {width: 200px; margin-right:10px; text-align:right;}
     #fromAddress {width: 400px; margin-right:10px; text-align:left;}
     #toAddress {width: 400px; margin-right:10px; text-align:left;}
+    #userID {width: 400px; margin-right:10px; text-align:left;}
+    #userPW {width: 400px; margin-right:10px; text-align:left;}
     #toValue {width: 200px; margin-right:10px; text-align:left;}
   </style>
 </head>
 <body>
 <h3>SineoCoin Test Page</h3>
 <ul>
-  <li>ID: <span id="userID"></span></li>
-  <li>PW: <span id="userPW"></span></li>
+  <li>ID: <input id="userID" type="text"></li>
+  <li>PW: <input id="userPW" type="text"></li>
   <button onclick="setUser()">Login</button>
   <li>컨트랙트 주소: <span id="contractAddr"></span></li>
   <li>현재블록: <span id="lastBlock"></span></li>
