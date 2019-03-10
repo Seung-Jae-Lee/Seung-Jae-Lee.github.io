@@ -85,7 +85,7 @@ function startApp() {
         if (r != null && r.blockNumber > 0) {
           document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
           document.getElementById('pending').style.cssText ='color:green;';
-          
+          txState = false;
         }
       });
     }
