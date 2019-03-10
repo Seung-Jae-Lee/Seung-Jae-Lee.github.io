@@ -80,7 +80,13 @@ function startApp() {
   }, 500);
 
   timer_tx_update = setInterval( function() {
-
+    if( txState ) {
+      web3.eth.getTransaction(txid, function(e,r) {
+        if (r != null && r.blockNumber > 0) {
+          console.log(ok);
+        }
+      });
+    }
   }, 500);
 }
 
