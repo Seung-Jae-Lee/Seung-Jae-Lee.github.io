@@ -105,7 +105,7 @@ function getWalletInfo() {
 
 function getPrivateKey(fromAddress) {
   var currentPrivateKey;
-  
+
   if( fromAddress == walletAddress1 ) {
     currentPrivateKey = privateKey1;
   }
@@ -126,6 +126,9 @@ function setValue() {
   var currentPrivateKey;
 
   currentPrivateKey = getPrivateKey(fromAddress);
+
+  web3.eth.getTransactionCount( fromAddress, function(e,r) {
+  });
 }
 
 </script>
