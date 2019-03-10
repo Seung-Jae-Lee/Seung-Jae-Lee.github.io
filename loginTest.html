@@ -37,6 +37,12 @@
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
 <script>
+var id1 = "SineoTest1";
+var id2 = "SineoTest2";
+var id3 = "SineoTest3";
+var pw1 = "test1";
+var pw2 = "test2";
+var pw3 = "test3";
 
 var contractAddress = "0xCc61A7219D761Ab202dF85Fb59c5B6D11Beb3cCc";
 var walletAddress1 = "0x3E931d5Fa9E6dE6D311BD32cC584B835AD1e5fa4";
@@ -55,6 +61,7 @@ var txid;
 var timer_tx_update;
 var timer_balance_update;
 var txState;
+var currentUser;
 
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -69,6 +76,24 @@ window.addEventListener('load', function() {
   // Now you can start your app & access web3 freely:
   startApp();
 });
+
+function setUser() {
+  var currentID = document.getElementById('userID').value;
+  var currentPW = document.getElementById('userPW').value;;
+
+  if( currentID == id1 && currentPW == pw1) {
+
+  }
+  else if (currentID == id2 && currentPW == pw2) {
+
+  }
+  else if (currentID == id3 && currentPW == pw3) {
+
+  }
+  else {
+
+  }
+}
 
 function startApp() {
   SineoCoinContract = web3.eth.contract(abi);
@@ -117,78 +142,6 @@ function getWalletInfo() {
   SineoCoin.balanceOf( walletAddress3, function(e,r) {
     document.getElementById('testWallet3').innerHTML = "-" + r;
   });
-}
-
-function getPrivateKey(fromAddress) {
-  var currentPrivateKey;
-
-  if( fromAddress == walletAddress1 ) {
-    currentPrivateKey = privateKey1;
-  }
-  else if (fromAddress == walletAddress2) {
-    currentPrivateKey = privateKey2;
-  }
-  else if (fromAddress == walletAddress3) {
-    currentPrivateKey = privateKey3;
-  }
-
-  return currentPrivateKey;
-}
-
-function setValue() {
-  var fromAddress = document.getElementById('fromAddress').value;
-  var toAddress = document.getElementById('toAddress').value;
-  var sc = document.getElementById('toValue').value * 1000000000000000000;
-  var currentPrivateKey;
-  var nonce;
-  var gasPrice;
-  var rawTx;
-
-  currentPrivateKey = getPrivateKey(fromAddress);
-
-  web3.eth.getTransactionCount( fromAddress, function(e,r) {
-    nonce = r;
-    console.log('nonce:', nonce);
-
-    web3.eth.getGasPrice( function(e,r) {
-      gasPrice = r;
-      console.log('gasPrice:', gasPrice);
-
-      gasLimit = web3.eth.gasLimit;
-
-      rawTx = {
-        from: fromAddress,
-        nonce: web3.toHex(nonce),
-        gasPrice: web3.toHex(gasPrice),
-        gasLimit: web3.toHex( 100000 ),
-        to: contractAddress,
-        value: "0x0",
-        data: SineoCoin.transfer.getData(toAddress, sc, {from: fromAddress}),
-        //data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
-        chainId: 0x03
-      }
-
-      var pKey = new ethereumjs.Buffer.Buffer(currentPrivateKey, 'hex');
-      var tx = new ethereumjs.Tx(rawTx);
-      tx.sign(pKey);
-      var serializedTx = tx.serialize().toString('hex');
-      web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
-        if (!err) {
-              document.getElementById('result').innerHTML = 'Transaction id: ' + hash + '<br><span id="pending" style="color:red;">(Pending)</span>';
-              txid = hash;
-              txState = true;
-              console.log('state:',txState);
-              console.log(hash);
-        }
-        else {
-              //txState = false;
-              console.log('transaction error');
-        }
-      });
-    });
-  });
-
-
 }
 
 </script>
