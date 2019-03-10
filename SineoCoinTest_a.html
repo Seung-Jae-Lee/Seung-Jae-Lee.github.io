@@ -103,5 +103,30 @@ function getWalletInfo() {
   });
 }
 
+function getPrivateKey(fromAddress) {
+  var praivateKey;
+
+  if( fromAddress == walletAddress1 ) {
+    currentPrivateKey = privateKey1;
+  }
+  else if (fromAddress == walletAddress2) {
+    currentPrivateKey = privateKey2;
+  }
+  else if (fromAddress == walletAddress3) {
+    currentPrivateKey = privateKey3;
+  }
+
+  return privateKey;
+}
+
+function setValue() {
+  var fromAddress = document.getElementById('fromAddress').value;
+  var toAddress = document.getElementById('toAddress').value;
+  var sc = document.getElementById('toValue').value * 1000000000000000000;
+  var currentPrivateKey;
+
+  currentPrivateKey = getPrivateKey(fromAddress);
+}
+
 </script>
 </html>
