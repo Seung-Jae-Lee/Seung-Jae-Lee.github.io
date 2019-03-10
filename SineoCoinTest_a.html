@@ -169,8 +169,13 @@ function setValue() {
               if( txState ) {
                 timer_tx_update = setInterval( function() {
                   console.log('test');
+                  if (r != null && r.blockNumber > 0) {
+                    document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
+                    document.getElementById('pending').style.cssText ='color:green;';
+                    clearInterval(timer_tx_update);
                 });
-              }
+              });
+            }
         }
         else {
               txState = false;
