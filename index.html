@@ -24,10 +24,11 @@
   <button onclick="setUser()">Login</button>
 </ul>
 
-<form action="loginTest.html" id="form">
+<form name = "walletAddress" method = "get" action="loginTest.html" accept-charset="UTF-8">
   <li>ID: <input id="userID" type="text"></li>
   <li>PW: <input id="userPW" type="text"></li>
-  <button onclick="setUser()">Login</button>
+  
+  <input type='submit' value = 'Login'>
 </form>
 </body>
 
@@ -53,7 +54,6 @@ function setUser() {
   if( currentID == id1 && currentPW == pw1) {
     currentWallet = walletAddress1;
     loginState = true;
-    location.href="https://seung-jae-lee.github.io/loginTest.html";
   }
   else if (currentID == id2 && currentPW == pw2) {
     currentWallet = walletAddress2;
