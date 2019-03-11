@@ -47,6 +47,7 @@ var pw1 = "test1";
 var pw2 = "test2";
 var pw3 = "test3";
 
+var currentWallet;
 var contractAddress = "0xCc61A7219D761Ab202dF85Fb59c5B6D11Beb3cCc";
 var walletAddress1 = "0x3E931d5Fa9E6dE6D311BD32cC584B835AD1e5fa4";
 var walletAddress2 = "0x2C6D92c8034062037064e8626BeDd74BF979817d";
@@ -65,6 +66,7 @@ var timer_tx_update;
 var timer_balance_update;
 var txState;
 var currentUser;
+var loginState;
 
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -85,16 +87,20 @@ function setUser() {
   var currentPW = document.getElementById('userPW').value;;
 
   if( currentID == id1 && currentPW == pw1) {
-
+    currentWallet = walletAddress1;
+    loginState = true;
   }
   else if (currentID == id2 && currentPW == pw2) {
-
+    currentWallet = walletAddress2;
+    loginState = true;
   }
   else if (currentID == id3 && currentPW == pw3) {
-
+    currentWallet = walletAddress3;
+    loginState = true;
   }
   else {
-
+    <a onclick="alert('준비중입니다.');" style="cursor:pointer">버튼 Text</a>
+    loginState = false;
   }
 }
 
