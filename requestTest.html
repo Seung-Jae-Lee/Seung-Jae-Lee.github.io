@@ -84,6 +84,8 @@ var txid;
 var timer_tx_update;
 var timer_balance_update;
 var txState;
+var user_id;
+var user_pw;
 
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -102,6 +104,10 @@ window.addEventListener('load', function() {
 function startApp() {
   SineoCoinContract = web3.eth.contract(abi);
   SineoCoin = SineoCoinContract.at(contractAddress);
+
+  user_id = request.getParameter('userID');
+  user_pw = request.getParameter('userPW');
+
   document.getElementById('contractAddr').innerHTML = getContractLink(contractAddress);
 
 
@@ -146,6 +152,22 @@ function getWalletInfo() {
   SineoCoin.balanceOf( walletAddress3, function(e,r) {
     document.getElementById('testWallet3').innerHTML = "-" + r;
   });
+}
+
+function getPrivateKey(fromAddress) {
+  var currentPrivateKey;
+
+  if( fromAddress == walletAddress1 ) {
+    currentPrivateKey = privateKey1;
+  }
+  else if (fromAddress == walletAddress2) {
+    currentPrivateKey = privateKey2;
+  }
+  else if (fromAddress == walletAddress3) {
+    currentPrivateKey = privateKey3;
+  }
+
+  return currentPrivateKey;
 }
 
 </script>
