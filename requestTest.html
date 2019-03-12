@@ -128,5 +128,11 @@ function getContractLink(addr) {
   return '<a target="_blank" href=https://ropsten.etherscan.io/address/' + addr + '>' + addr +'</a>';
 }
 
+function getValue() {
+  web3.eth.getBlockNumber( function(e,r){
+    document.getElementById('lastBlock').innerHTML = r;
+  });
+}
+
 </script>
 </html>
