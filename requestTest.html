@@ -13,31 +13,7 @@
     #toAddress {width: 400px; margin-right:10px; text-align:left;}
     #toValue {width: 200px; margin-right:10px; text-align:left;}
   </style>
-  <script>
-  <!--
-  	var Request = function()
-  	{
-  		this.getParameter = function( name )
-  		{
-  			var rtnval = '';
-  			var nowAddress = unescape(location.href);
-  			var parameters = (nowAddress.slice(nowAddress.indexOf('?')+1,nowAddress.length)).split('&');
-  			for(var i = 0 ; i < parameters.length ; i++)
-  			{
-  				var varName = parameters[i].split('=')[0];
-  				if(varName.toUpperCase() == name.toUpperCase())
-  				{
-  					rtnval = parameters[i].split('=')[1];
-  					break;
-  				}
-  			}
-  	//        return rtnval;
-  			document.write( rtnval );
-  		}
-  	}
-  	var request = new Request();
-  	//-->
-    </script>
+
 </head>
 <body>
 <h3>SineoCoin Test Page</h3>
@@ -86,6 +62,29 @@ var timer_balance_update;
 var txState;
 var user_id;
 var user_pw;
+var request;
+
+var Request = function()
+{
+  this.getParameter = function( name )
+  {
+    var rtnval = '';
+    var nowAddress = unescape(location.href);
+    var parameters = (nowAddress.slice(nowAddress.indexOf('?')+1,nowAddress.length)).split('&');
+    for(var i = 0 ; i < parameters.length ; i++)
+    {
+      var varName = parameters[i].split('=')[0];
+      if(varName.toUpperCase() == name.toUpperCase())
+      {
+        rtnval = parameters[i].split('=')[1];
+        break;
+      }
+    }
+//        return rtnval;
+    document.write( rtnval );
+  }
+}
+request = new Request();
 
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
