@@ -81,5 +81,44 @@ var abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","typ
 var SineoCoinContract;
 var SineoCoin;
 
+window.addEventListener('load', function() {
+  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+    // Use Mist/MetaMask's provider
+    window.web3 = new Web3(web3.currentProvider);
+  } else {
+    console.log('No web3? You should consider trying MetaMask!')
+    // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+    window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/72e034f53be64480861632086bc2102f"));
+  }
+  // Now you can start your app & access web3 freely:
+  startApp();
+});
+
+function startApp() {
+  SineoCoinContract = web3.eth.contract(abi);
+  SineoCoin = SineoCoinContract.at(contractAddress);
+  document.getElementById('contractAddr').innerHTML = getContractLink(contractAddress);
+
+
+
+  timer_balance_update = setInterval( function() {
+    getValue();
+    getWalletInfo();
+  }, 100);
+
+  timer_tx_update = setInterval( function() {
+    if( txState ) {
+      web3.eth.getTransaction(txid, function(e,r) {
+        if (r != null && r.blockNumber > 0) {
+          document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
+          document.getElementById('pending').style.cssText ='color:green;';
+          txState = false;
+        }
+      });
+    }
+  }, 100);
+}
+
 </script>
 </html>
