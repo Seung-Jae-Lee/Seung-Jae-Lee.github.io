@@ -80,6 +80,10 @@ var abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","typ
 
 var SineoCoinContract;
 var SineoCoin;
+var txid;
+var timer_tx_update;
+var timer_balance_update;
+var txState;
 
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
