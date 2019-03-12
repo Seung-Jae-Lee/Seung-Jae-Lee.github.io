@@ -87,6 +87,9 @@ var txState;
 var user_id;
 var user_pw;
 
+user_id = request.getParameter('userID');
+user_pw = request.getParameter('userPW');
+
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
@@ -97,10 +100,6 @@ window.addEventListener('load', function() {
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/72e034f53be64480861632086bc2102f"));
   }
-
-  user_id = request.getParameter('userID');
-  user_pw = request.getParameter('userPW');
-  
   // Now you can start your app & access web3 freely:
   startApp();
 });
