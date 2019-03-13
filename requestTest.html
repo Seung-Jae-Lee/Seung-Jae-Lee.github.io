@@ -156,7 +156,7 @@ function setValue() {
   var gasPrice;
   var rawTx;
 
-  currentPrivateKey = getPrivateKey(fromAddress);
+  //currentPrivateKey = getPrivateKey(fromAddress);
   web3.eth.getTransactionCount( fromAddress, function(e,r) {
     nonce = r;
     console.log('nonce:', nonce);
