@@ -27,7 +27,7 @@ PW : <script>request.getParameter('userPW');</script>
   <li>Contract Address: <span id="contractAddr"></span></li>
   <li>Current Wallet  : <span id="currentWallet"></span></li>
   <li>현재블록: <span id="lastBlock"></span></li>
-  <li>From : <input id="fromAddress" type="text"></li>
+  <li>From : <span id="fromAddress"></li>
   <li>To : <input id="toAddress" type="text"></li>
   <li><input id="toValue" type="text"> sc &nbsp;&nbsp;&nbsp;&nbsp;
     <button onclick="setValue()">Transfer</button>
@@ -102,7 +102,7 @@ function startApp() {
 
   document.getElementById('contractAddr').innerHTML = getContractLink(contractAddress);
   document.getElementById('currentWallet').innerHTML = getContractLink(currentWallet);
-
+  document.getElementById('fromAddress').innerHTML = currentWallet;
 
 
   timer_balance_update = setInterval( function() {
@@ -147,6 +147,15 @@ function getWalletInfo() {
   });
 }
 
+function setValue() {
+  var fromAddress = currentWallet;
+  var toAddress = document.getElementById('toAddress').value;
+  var sc = document.getElementById('toValue').value * 1000000000000000000;
+  var currentPrivateKey;
+  var nonce;
+  var gasPrice;
+  var rawTx;
+}
 /*
 function getPrivateKey(fromAddress) {
   var currentPrivateKey;
