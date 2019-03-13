@@ -178,6 +178,10 @@ function getPrivateKey(user_id, user_pw) {
     currentWallet = walletAddress3;
     currentPrivateKey = privateKey3;
   }
+  else {
+    confirm("등록된 id/pw가 아닙니다.");
+    history.Back();
+  }
 }
 
 function Request() {
