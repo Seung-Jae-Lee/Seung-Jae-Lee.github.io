@@ -41,7 +41,8 @@ PW : <script>request.getParameter('userPW');</script>
 
 </body>
 
-<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<!--<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>-->
+<script src="./web3.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
 <script>
 var contractAddress = "0xCc61A7219D761Ab202dF85Fb59c5B6D11Beb3cCc";
@@ -238,9 +239,7 @@ function getPrivateKey(user_id, user_pw) {
 
 function Request() {
   var requestParam ="";
-  //getParameter 펑션
   this.getParameter = function(param){
-  //현재 주소를 decoding
   var url = unescape(location.href);
   //파라미터만 자르고, 다시 &그분자를 잘라서 배열에 넣는다.
   var paramArr = (url.substring(url.indexOf("?")+1,url.length)).split("&");
