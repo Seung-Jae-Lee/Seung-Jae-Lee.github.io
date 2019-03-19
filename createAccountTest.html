@@ -63,7 +63,7 @@ var currentWallet;
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
 
-  window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/72e034f53be64480861632086bc2102f"));
+  window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/"));
   // Now you can start your app & access web3 freely:
 
   startApp();
@@ -75,12 +75,10 @@ function startApp() {
 }
 
 function createAccount() {
-  //var result = web3.eth.accounts[0];
-  //var result = web3.eth.accounts.create('asdetgsd45ht67jurop098djkhdju4es');
+  web3.eth.getBalance('0x3E931d5Fa9E6dE6D311BD32cC584B835AD1e5fa4', (err, data) => {
+    console.log(data);
+  })
 
-  var result = web3.personal.newAccount('asdetgsd45ht67jurop098djkhdju4es');
-  console.log(result.address);
-  console.log(result.privateKey);
 }
 </script>
 </html>
