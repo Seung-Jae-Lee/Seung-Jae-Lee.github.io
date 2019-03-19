@@ -63,7 +63,7 @@ var currentWallet;
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
 
-  window.web3 = new Web3(new Web3.providers.WebsocketProvider('wss://ropsten.infura.io/ws'));
+  window.web3 = new Web3(new Web3.providers.WebsocketProvider("wss://ropsten.infura.io/ws"));
   // Now you can start your app & access web3 freely:
 
   startApp();
