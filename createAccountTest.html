@@ -75,12 +75,14 @@ window.addEventListener('load', function() {
 });
 
 function startApp() {
-
+  SineoCoinContract = web3.eth.contract(abi);
+  SineoCoin = SineoCoinContract.at(contractAddress);
 }
 
 function createAccount() {
+  var result = web3.eth.accounts[0];
   //var result = web3.eth.accounts.create('asdetgsd45ht67jurop098djkhdju4es');
-  var result = web3.eth.accounts.createAccount('asdetgsd45ht67jurop098djkhdju4es');
+
   console.log(result.address);
   console.log(result.privateKey);
 }
