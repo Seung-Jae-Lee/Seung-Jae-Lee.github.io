@@ -183,6 +183,8 @@ function setValue() {
         //data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
         chainId: 0x03
       }
+
+      txid = web3.eth.sendRawTransaction(rawTx);
 /*
       var pKey = new ethereumjs.Buffer.Buffer(currentPrivateKey, 'hex');
       var tx = new ethereumjs.Tx(rawTx);
@@ -202,7 +204,7 @@ function setValue() {
               console.log('transaction error');
         }
       });
-*/      
+*/
     });
   });
 }
