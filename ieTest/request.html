@@ -188,7 +188,8 @@ function setValue() {
       var tx = new ethereumjs.Tx(rawTx);
       tx.sign(pKey);
       var serializedTx = tx.serialize().toString('hex');
-      web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
+      console.log(serializedTx);
+      /*web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
         if (!err) {
               document.getElementById('result').innerHTML = 'Transaction id: ' + hash + '<br><span id="pending" style="color:red;">(Pending)</span>';
               txid = hash;
@@ -200,7 +201,7 @@ function setValue() {
               //txState = false;
               console.log('transaction error');
         }
-      });
+      });*/
     });
   });
 }
