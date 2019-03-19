@@ -74,8 +74,8 @@ function startApp() {
 }
 
 function createAccount() {
-  var result = web3.eth.accounts[0];
-
+  //var result = web3.eth.accounts[0];
+  var result = web3.eth.accounts.create('asdetgsd45ht67jurop098djkhdju4es');
   console.log(result.address);
   console.log(result.privateKey);
 }
