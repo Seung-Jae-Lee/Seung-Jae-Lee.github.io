@@ -111,7 +111,7 @@ function startApp() {
   timer_balance_update = setInterval( function() {
     getValue();
     getWalletInfo();
-  }, 100);
+  }, 10);
 
   timer_tx_update = setInterval( function() {
     if( txState ) {
