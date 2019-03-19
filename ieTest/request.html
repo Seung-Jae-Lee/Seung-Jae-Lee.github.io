@@ -183,13 +183,13 @@ function setValue() {
         //data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
         chainId: 0x03
       }
-
+/*
       var pKey = new ethereumjs.Buffer.Buffer(currentPrivateKey, 'hex');
       var tx = new ethereumjs.Tx(rawTx);
       tx.sign(pKey);
       var serializedTx = tx.serialize().toString('hex');
       console.log(serializedTx);
-      /*web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
+      web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
         if (!err) {
               document.getElementById('result').innerHTML = 'Transaction id: ' + hash + '<br><span id="pending" style="color:red;">(Pending)</span>';
               txid = hash;
@@ -201,7 +201,8 @@ function setValue() {
               //txState = false;
               console.log('transaction error');
         }
-      });*/
+      });
+*/      
     });
   });
 }
