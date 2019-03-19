@@ -75,7 +75,7 @@ function startApp() {
 }
 
 function createAccount() {
-  web3.eth.getBalance('0x3E931d5Fa9E6dE6D311BD32cC584B835AD1e5fa4', (err, data) => {
+  window.web3.eth.getBalance('0x3E931d5Fa9E6dE6D311BD32cC584B835AD1e5fa4', (err, data) => {
     console.log(data);
   })
   window.web3.personal.newAccount('skdugh135ggs8dutnglsdjens8s2kdgs', function(err, data) {
