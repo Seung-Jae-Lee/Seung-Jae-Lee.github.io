@@ -152,7 +152,10 @@ function getWalletInfo() {
     document.getElementById('testWallet3').innerHTML = "-" + r;
   });
 }
-
+function setValue() {
+  web3.eth.defaultAccount = currentWallet;
+}
+/*
 function setValue() {
   var fromAddress = currentWallet;
   var toAddress = document.getElementById('toAddress').value;
@@ -207,6 +210,8 @@ function setValue() {
     });
   });
 }
+*/
+
 /*
 function getPrivateKey(fromAddress) {
   var currentPrivateKey;
