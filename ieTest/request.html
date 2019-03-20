@@ -184,10 +184,7 @@ function setValue() {
         chainId: 0x03
       }
 
-      txid = web3.eth.sendTransaction(rawTx, function(err, data) {
 
-      });
-/*
       var pKey = new ethereumjs.Buffer.Buffer(currentPrivateKey, 'hex');
       var tx = new ethereumjs.Tx(rawTx);
       tx.sign(pKey);
@@ -206,7 +203,7 @@ function setValue() {
               console.log('transaction error');
         }
       });
-*/
+
     });
   });
 }
