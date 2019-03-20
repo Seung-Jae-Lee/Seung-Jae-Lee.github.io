@@ -147,11 +147,11 @@ function getWalletInfo() {
   SineoCoin.balanceOf( walletAddress2, function(e,r) {
     document.getElementById('testWallet2').innerHTML = "-" + r;
   });
-
-  SineoCoin.balanceOf( walletAddress3, function(e,r) {
+*/
+  SineoCoin.methods.balanceOf( walletAddress3, function(e,r) {
     document.getElementById('testWallet3').innerHTML = "-" + r;
   });
-*/
+
   var value = SineoCoin.methods.balanceOf( walletAddress1 );
   document.getElementById('testWallet1').innerHTML = "-" + value;
 
