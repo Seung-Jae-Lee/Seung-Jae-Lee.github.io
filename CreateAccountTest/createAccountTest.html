@@ -69,12 +69,6 @@ var request;
 var currentPrivateKey;
 var currentWallet;
 
-request = new Request();
-user_id = request.getParameter("userID");
-user_pw = request.getParameter("userPW");
-
-getPrivateKey(user_id, user_pw);
-
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
