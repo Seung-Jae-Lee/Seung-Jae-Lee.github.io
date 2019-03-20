@@ -84,20 +84,7 @@ window.addEventListener('load', function() {
 });
 
 function startApp() {
-  SineoCoinContract = new web3.eth.Contract(abi);
-  SineoCoin = SineoCoinContract.at(contractAddress);
-
-  web3.eth.defaultAccount = walletAddress1;
-  var defaultAccount = web3.eth.defaultAccount;
-  console.log(defaultAccount);
-
-  web3.personal.newAccount('adokgjdugeadokgjdugeadokgjduge32', function(err,data) {
-    console.log(err);
-    console.log(data);
-  });
-
-  web3.personal.newAccount('adsdfoogsidofsdifos');
-  web3.eth.accounts;
+  var acc = web3.eth.accounts.create('alojduygjshg74smjogdus9wdjgoe764');
 }
 
 </script>
