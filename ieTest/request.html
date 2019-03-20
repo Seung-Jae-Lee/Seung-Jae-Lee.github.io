@@ -152,7 +152,8 @@ function getWalletInfo() {
     document.getElementById('testWallet3').innerHTML = "-" + r;
   });
 */
-  SineoCoin.methods.balanceOf( walletAddress1 );
+  var value = SineoCoin.methods.balanceOf( walletAddress1 );
+  document.getElementById('testWallet1').innerHTML = "-" + value;
 
 }
 function setValue() {
