@@ -90,7 +90,7 @@ function setValue() {
   var acc = web3.eth.accounts.create(info);
   console.log(acc);
   document.getElementById('address').innerHTML = acc.address;
-  document.getElementById('address').innerHTML = acc.privateKey;
+  document.getElementById('privateKey').innerHTML = acc.privateKey;
 }
 
 </script>
