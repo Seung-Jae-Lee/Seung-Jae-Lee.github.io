@@ -17,16 +17,28 @@
 </head>
 <body>
 <h3>SineoCoin Test Page</h3>
-<li>
-  <button onclick="createAccount()">Create Account</button>
-</li>
+<!--
+<form name = "walletAddress">
+ID : <script>request.getParameter('userID');</script><br>
+PW : <script>request.getParameter('userPW');</script>
+</form>
+-->
+<ul>
+  <li>
+    <button onclick="setValue()">Transfer</button>
+  </li>
+</ul>
 
-<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
-<!--<script src="../web3.js"></script>-->
-<script src="../ethereumjs-tx-1.3.3.min.js"></script>
-<script src="./jquery-3.3.1.min.js"></script>
+</body>
+
+<!--<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>-->
+<script src="../web3.js"></script>
+<script src="../ethereumjs-tx-1.3.3.js"></script>
+
+<!--<script src="./Json2.js"></script>-->
+
 <script>
-
 var contractAddress = "0xCc61A7219D761Ab202dF85Fb59c5B6D11Beb3cCc";
 var walletAddress1 = "0x3E931d5Fa9E6dE6D311BD32cC584B835AD1e5fa4";
 var walletAddress2 = "0x2C6D92c8034062037064e8626BeDd74BF979817d";
@@ -57,11 +69,11 @@ var request;
 var currentPrivateKey;
 var currentWallet;
 
-//request = new Request();
-//user_id = request.getParameter("userID");
-//user_pw = request.getParameter("userPW");
+request = new Request();
+user_id = request.getParameter("userID");
+user_pw = request.getParameter("userPW");
 
-//getPrivateKey(user_id, user_pw);
+getPrivateKey(user_id, user_pw);
 
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -72,10 +84,6 @@ window.addEventListener('load', function() {
     console.log('No web3? You should consider trying MetaMask!')
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/72e034f53be64480861632086bc2102f"));
-
-    const newPrivateAccount = web3.eth.accounts.create();
-    console.log(`Account : ${newPrivateAccount.address}`);
-    console.log(`Private key  : ${newPrivateAccount.privateKey}`);
   }
   // Now you can start your app & access web3 freely:
 
@@ -87,15 +95,5 @@ function startApp() {
   SineoCoin = SineoCoinContract.at(contractAddress);
 }
 
-function createAccount() {
-  window.web3.eth.getBalance('0x3E931d5Fa9E6dE6D311BD32cC584B835AD1e5fa4', (err, data) => {
-    console.log(data);
-  })
-
-  const newPrivateAccount = web3.eth.accounts.constructor('akidjho43jf8bskg0plsaeij6ejfnjdr');
-  console.log(`Account : ${newPrivateAccount.address}`);
-  console.log(`Private key  : ${newPrivateAccount.privateKey}`);
-
-}
 </script>
 </html>
