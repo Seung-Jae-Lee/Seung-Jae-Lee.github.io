@@ -92,6 +92,7 @@ function startApp() {
   console.log(defaultAccount);
 
   web3.personal.newAccount('adsdfoogsidofsdifos', function(err,data) {
+    console.log(err);
     console.log(data);
   });
 
