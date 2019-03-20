@@ -25,6 +25,7 @@ PW : <script>request.getParameter('userPW');</script>
 -->
 <ul>
   <li>
+    <li><input id="info" type="text"></li>
     <button onclick="setValue()">Transfer</button>
   </li>
 </ul>
@@ -85,7 +86,12 @@ window.addEventListener('load', function() {
 
 function startApp() {
   SineoCoin = new web3.eth.Contract(abi, contractAddress);
-  var acc = web3.eth.accounts.create('alojduygjshg74smjogdus9wdjgoe764');
+
+}
+
+function setValue() {
+  var info = document.getElementById('info').value;
+  var acc = web3.eth.accounts.create(info);
   console.log(acc);
 }
 
