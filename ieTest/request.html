@@ -151,8 +151,9 @@ function getWalletInfo() {
   SineoCoin.balanceOf( walletAddress3, function(e,r) {
     document.getElementById('testWallet3').innerHTML = "-" + r;
   });
-*/
+
   SineoCoin.balanceOf(walletAddress1);
+  */
 }
 function setValue() {
   web3.eth.defaultAccount = currentWallet;
