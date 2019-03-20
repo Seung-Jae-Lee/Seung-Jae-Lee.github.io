@@ -91,7 +91,9 @@ function startApp() {
   var defaultAccount = web3.eth.defaultAccount;
   console.log(defaultAccount);
 
-  web3.eth.personal.newAccount('adsdfoogsidofsdifos');
+  web3.eth.personal.newAccount('adsdfoogsidofsdifos', function(err,data) {
+    console.log(data);
+  });
 }
 
 </script>
