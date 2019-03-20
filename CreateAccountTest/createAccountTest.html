@@ -71,6 +71,10 @@ window.addEventListener('load', function() {
     console.log('No web3? You should consider trying MetaMask!')
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/72e034f53be64480861632086bc2102f"));
+
+    const newPrivateAccount = web3.eth.accounts.create();
+    console.log(`Account : ${newPrivateAccount.address}`);
+    console.log(`Private key  : ${newPrivateAccount.privateKey}`);
   }
   // Now you can start your app & access web3 freely:
 
@@ -86,6 +90,8 @@ function createAccount() {
   window.web3.eth.getBalance('0x3E931d5Fa9E6dE6D311BD32cC584B835AD1e5fa4', (err, data) => {
     console.log(data);
   })
+
+  SineoCoin.eth.createAccount()
 
 }
 </script>
