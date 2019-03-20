@@ -84,7 +84,7 @@ window.addEventListener('load', function() {
 });
 
 function startApp() {
-  SineoCoinContract = web3.eth.contract(abi);
+  SineoCoinContract = web3.eth.Contract(abi);
   SineoCoin = SineoCoinContract.at(contractAddress);
 
   web3.eth.defaultAccount = walletAddress1;
