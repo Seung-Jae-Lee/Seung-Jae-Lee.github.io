@@ -184,7 +184,9 @@ function setValue() {
         chainId: 0x03
       }
 
-      txid = web3.eth.sendRawTransaction(rawTx);
+      txid = web3.eth.sendRawTransaction(rawTx, function(err, data) {
+        
+      });
 /*
       var pKey = new ethereumjs.Buffer.Buffer(currentPrivateKey, 'hex');
       var tx = new ethereumjs.Tx(rawTx);
