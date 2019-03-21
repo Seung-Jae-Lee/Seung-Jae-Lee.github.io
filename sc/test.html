@@ -138,15 +138,15 @@ function getValue() {
 function getWalletInfo() {
   SineoCoin.methods.balanceOf( walletAddress1 ).call( (err, data) => {
     document.getElementById('testWallet1').innerHTML = "-" + data;
-  }).then(console.log);
+  });
 
   SineoCoin.methods.balanceOf( walletAddress2 ).call( (err, data) => {
     document.getElementById('testWallet2').innerHTML = "-" + data;
-  }).then(console.log);
+  });
 
   SineoCoin.methods.balanceOf( walletAddress3 ).call( (err, data) => {
     document.getElementById('testWallet3').innerHTML = "-" + data;
-  }).then(console.log);
+  });
 }
 
 function setValue() {
