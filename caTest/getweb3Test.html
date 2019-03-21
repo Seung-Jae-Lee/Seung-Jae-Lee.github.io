@@ -85,7 +85,8 @@ window.addEventListener('load', function() {
 function startApp() {
   SineoCoin = new web3.eth.Contract(abi, contractAddress);
 
-  SineoCoin.methods.balanceOf( walletAddress1 ).call();
+  var value = SineoCoin.methods.balanceOf( walletAddress1 ).call();
+  document.getElementById('testWallet1').innerHTML = "-" + value;
 }
 
 </script>
