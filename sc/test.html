@@ -150,6 +150,17 @@ function getWalletInfo() {
 }
 
 function setValue() {
+  var fromAddress = currentWallet;
+  var toAddress = document.getElementById('toAddress').value;
+  var sc = document.getElementById('toValue').value * 1000000000000000000;
+  var nonce;
+  var gasPrice;
+  var rawTx;
+
+  web3.eth.getTransactionCount( fromAddress, function(e,r) {
+    nonce = r;
+    console.log('nonce:', nonce);
+  });
 }
 /*
 function setValue() {
