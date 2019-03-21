@@ -159,7 +159,10 @@ function setValue() {
   var gasPrice;
   var rawTx;
 
-  encodeFunctionTxData('SineoCoin.methods.transfer', ['uint256'], [toAddress, sc]);
+  //encodeFunctionTxData('SineoCoin.methods.transfer', ['uint256'], [toAddress, sc]);
+
+  web3.eth.defaultAccount = fromAddress;
+  
 }
 
 function encodeFunctionTxData(functionName, types, args) {
@@ -169,7 +172,7 @@ function encodeFunctionTxData(functionName, types, args) {
   var dataHex = signature + coder.encodeParams(types, args);
 
   return dataHex;
-}
+}web3.CryptoJS.SHA384()
 /*
 function setValue() {
   var fromAddress = currentWallet;
