@@ -24,6 +24,7 @@ PW : <script>request.getParameter('userPW');</script>
   <button onclick="setValue()">Transfer</button><br>
   <div id="address"></div>
   <div id="privateKey"></div>
+  <div id="test"></div>
 </ul>
 
 </body>
@@ -84,6 +85,9 @@ window.addEventListener('load', function() {
 function startApp() {
   SineoCoin = new web3.eth.Contract(abi, contractAddress);
 
+  SineoCoin.balanceOf( walletAddress1, function(e,r) {
+    document.getElementById('test').innerHTML = "-" + r;
+  });
 }
 
 </script>
