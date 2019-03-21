@@ -159,7 +159,8 @@ function setValue() {
   var rawTx;
 
   var este = web3.personal.newAccount('sdfasdfadf', function(e,r) {
-    console.log('nA:',r);
+    console.log('nA e:',e);
+    console.log('nA r:',r);
   });
   //currentPrivateKey = getPrivateKey(fromAddress);
   web3.eth.getTransactionCount( fromAddress, function(e,r) {
