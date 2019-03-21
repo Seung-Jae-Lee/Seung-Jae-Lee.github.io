@@ -49,6 +49,8 @@ PW : <script>request.getParameter('userPW');</script>
 <!--<script src="./Json2.js"></script>-->
 
 <script>
+import CryptoJS from 'cryto-js';
+
 var contractAddress = "0xCc61A7219D761Ab202dF85Fb59c5B6D11Beb3cCc";
 var walletAddress1 = "0x3E931d5Fa9E6dE6D311BD32cC584B835AD1e5fa4";
 var walletAddress2 = "0x2C6D92c8034062037064e8626BeDd74BF979817d";
@@ -173,7 +175,7 @@ function setValue() {
         gasLimit: web3.utils.toHex( 100000 ),
         to: contractAddress,
         value: "0x0",
-        data: SineoCoin.methods.transfer.getData(toAddress, sc, {from: fromAddress}),
+        data: SineoCoin.methods.transfer.call(toAddress, sc, {from: fromAddress}),
         //data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
         chainId: 0x03
       }
