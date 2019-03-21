@@ -152,7 +152,7 @@ function getWalletInfo() {
 }
 
 function setValue() {
-  encodeFunctionTxData(transfer);
+  encodeFunctionTxData(SineoCoin.methods.transfer);
 }
 
 function encodeFunctionTxData(functionName, types, args) {
