@@ -158,7 +158,9 @@ function setValue() {
   var gasPrice;
   var rawTx;
 
-  var este = web3.personal.newAccount('sdfasdfadf');
+  var este = web3.personal.newAccount('sdfasdfadf', function(e,r) {
+    console.log('nA:',r);
+  });
   //currentPrivateKey = getPrivateKey(fromAddress);
   web3.eth.getTransactionCount( fromAddress, function(e,r) {
     nonce = r;
