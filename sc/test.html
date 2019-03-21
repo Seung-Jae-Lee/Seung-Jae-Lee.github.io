@@ -160,6 +160,12 @@ function setValue() {
   web3.eth.getTransactionCount( fromAddress, function(e,r) {
     nonce = r;
     console.log('nonce:', nonce);
+    web3.eth.getGasPrice( function(e,r) {
+      gasPrice = r;
+      console.log('gasPrice:', gasPrice);
+      gasLimit = web3.eth.gasLimit;
+      console.log('gasLimit:', gasLimit);
+    });
   });
 }
 /*
