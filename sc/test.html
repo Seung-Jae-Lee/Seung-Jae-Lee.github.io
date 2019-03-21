@@ -165,6 +165,19 @@ function setValue() {
       console.log('gasPrice:', gasPrice);
       gasLimit = web3.eth.gasLimit;
       console.log('gasLimit:', gasLimit);
+
+      rawTx = {
+        from: fromAddress,
+        nonce: web3.utils.toHex(nonce),
+        gasPrice: web3.utils.toHex(gasPrice),
+        gasLimit: web3.utils.toHex( 100000 ),
+        to: contractAddress,
+        value: "0x0",
+        data: SineoCoin.methods.transfer.getData(toAddress, sc, {from: fromAddress}),
+        //data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
+        chainId: 0x03
+      }
+      
     });
   });
 }
