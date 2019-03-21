@@ -2540,7 +2540,7 @@ function Web3 (provider) {
     this.bzz = new Swarm(this);
     this.settings = new Settings();
     this.version = {
-        api: 1.0.0-beta;
+        api: version.version
     };
     this.providers = {
         HttpProvider: HttpProvider,
