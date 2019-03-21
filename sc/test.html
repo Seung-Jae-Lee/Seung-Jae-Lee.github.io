@@ -159,7 +159,7 @@ function setValue() {
   var gasPrice;
   var rawTx;
 
-  encodeFunctionTxData(SineoCoin.methods.transfer, [uint256], [toAddress, sc]);
+  encodeFunctionTxData('SineoCoin.methods.transfer', ['uint256'], [toAddress, sc]);
 }
 
 function encodeFunctionTxData(functionName, types, args) {
