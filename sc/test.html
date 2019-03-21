@@ -152,7 +152,14 @@ function getWalletInfo() {
 }
 
 function setValue() {
-  encodeFunctionTxData(SineoCoin.methods.transfer);
+  var fromAddress = currentWallet;
+  var toAddress = document.getElementById('toAddress').value;
+  var sc = document.getElementById('toValue').value * 1000000000000000000;
+  var nonce;
+  var gasPrice;
+  var rawTx;
+
+  encodeFunctionTxData(SineoCoin.methods.transfer, [uint256], [toAddress, sc]);
 }
 
 function encodeFunctionTxData(functionName, types, args) {
