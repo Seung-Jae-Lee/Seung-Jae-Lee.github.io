@@ -101,15 +101,11 @@ window.addEventListener('load', function() {
 });
 
 function startApp() {
-  SineoCoinContract = web3.eth.contract(abi);
-  SineoCoin = SineoCoinContract.at(contractAddress);
-
-
+  SineoCoin = new web3.eth.Contract(abi, contractAddress);
 
   document.getElementById('contractAddr').innerHTML = getContractLink(contractAddress);
   document.getElementById('currentWallet').innerHTML = getContractLink(currentWallet);
   document.getElementById('fromAddress').innerHTML = currentWallet;
-
 
   timer_balance_update = setInterval( function() {
     getValue();
