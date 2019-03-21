@@ -161,7 +161,47 @@ function setValue() {
 
   //encodeFunctionTxData('SineoCoin.methods.transfer', ['uint256'], [toAddress, sc]);
 
-  web3.eth.defaultAccount = fromAddress;
+  web3.eth.getTransactionCount( fromAddress, function(e,r) {
+    nonce = r;
+    console.log('nonce:', nonce);
+
+    web3.eth.getGasPrice( function(e,r) {
+      gasPrice = r;
+      console.log('gasPrice:', gasPrice);
+
+      gasLimit = web3.eth.gasLimit;
+
+      rawTx = {
+        from: fromAddress,
+        nonce: web3.utils.toHex(nonce),
+        gasPrice: web3.utils.toHex(gasPrice),
+        gasLimit: web3.utils.toHex( 100000 ),
+        to: contractAddress,
+        value: "0x0",
+        data: SineoCoin.methods.transfer.getData(toAddress, sc, {from: fromAddress}),
+        //data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
+        chainId: 0x03
+      }
+
+      var pKey = new ethereumjs.Buffer.Buffer(currentPrivateKey, 'hex');
+      var tx = new ethereumjs.Tx(rawTx);
+      tx.sign(pKey);
+      var serializedTx = tx.serialize().toString('hex');
+      web3.eth.sendRawTransaction('0x' + serializedTx, function(err, hash) {
+        if (!err) {
+              document.getElementById('result').innerHTML = 'Transaction id: ' + hash + '<br><span id="pending" style="color:red;">(Pending)</span>';
+              txid = hash;
+              txState = true;
+              console.log('state:',txState);
+              console.log(hash);
+        }
+        else {
+              //txState = false;
+              console.log('transaction error');
+        }
+      });
+    });
+  });
 
 }
 
