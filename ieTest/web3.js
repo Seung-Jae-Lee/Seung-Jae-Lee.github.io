@@ -2471,7 +2471,7 @@ module.exports = {
 
 },{"./sha3.js":19,"bignumber.js":"bignumber.js","utf8":123}],21:[function(require,module,exports){
 module.exports={
-    "version": "1.0.0"
+    "version": "0.20.7"
 }
 
 },{}],22:[function(require,module,exports){
