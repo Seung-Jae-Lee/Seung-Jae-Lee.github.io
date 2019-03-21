@@ -170,9 +170,9 @@ function setValue() {
 
       rawTx = {
         from: fromAddress,
-        nonce: web3.toHex(nonce),
-        gasPrice: web3.toHex(gasPrice),
-        gasLimit: web3.toHex( 100000 ),
+        nonce: web3.utils.toHex(nonce),
+        gasPrice: web3.utils.toHex(gasPrice),
+        gasLimit: web3.utils.toHex( 100000 ),
         to: contractAddress,
         value: "0x0",
         data: SineoCoin.transfer.getData(toAddress, sc, {from: fromAddress}),
