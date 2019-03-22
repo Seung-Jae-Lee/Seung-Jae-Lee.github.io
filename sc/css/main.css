@@ -288,14 +288,14 @@ a {
 
 .account_img {
 
-    width:70%;
+  width:309%;
 
-    position:relative;
+  position:relative;
 
-    top:50%;
-    left:50%;
+  top:50%;
+  left:40%;
 
-    transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%);
 }
 
 .account_address_form {
