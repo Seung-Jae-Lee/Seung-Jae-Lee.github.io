@@ -166,11 +166,11 @@ function getValue() {
 
 function getWalletInfo() {
   SineoCoin.methods.balanceOf( walletAddress1 ).call( (err, data) => {
-    document.getElementById('testWallet1').innerHTML = "<br> - " + data;
+    document.getElementById('testWallet1').innerHTML = "<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + data;
   });
 
   SineoCoin.methods.balanceOf( walletAddress2 ).call( (err, data) => {
-    document.getElementById('testWallet2').innerHTML = "<br> - " + data;
+    document.getElementById('testWallet2').innerHTML = "<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + data;
   });
 
   SineoCoin.methods.balanceOf( walletAddress3 ).call( (err, data) => {
