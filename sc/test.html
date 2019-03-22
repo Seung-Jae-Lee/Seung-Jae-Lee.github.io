@@ -40,11 +40,14 @@
   <center><img src = "img/logo.png" width = "80%" height = "50%"></center>
   <div = class = "account_address_form">
     <span id="account_no_address">
-      <align = "left">Contract Address: <span id="contractAddr"></span></align><br>
-      <align = "left">Current Wallet  : <span id="currentWallet"></span></align><br>
-      <align = "left">현재블록: <span id="lastBlock"></span></align><br>
-      <align = "left">From : <span id="fromAddress"></span></align><br>
-      <align = "left">  To : <input id="toAddress" type="text">
+      Contract Address: <span id="contractAddr"></span></align><br>
+      Current Wallet  : <span id="currentWallet"></span></align><br>
+      현재블록: <span id="lastBlock"></span></align><br>
+      From : <span id="fromAddress"></span></align><br>
+      To : <input id="toAddress" type="text"></align><br>
+      <input id="toValue" type="text"> sc &nbsp;&nbsp;&nbsp;&nbsp;
+          <button onclick="setValue()">Transfer</button><br>
+          <div id="result"></div>
     </span>
   </div>
 </div>
