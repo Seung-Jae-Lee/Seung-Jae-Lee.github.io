@@ -168,6 +168,21 @@ function setValue() {
     web3.eth.getGasPrice( function(e,r) {
       gasPrice = r;
       console.log('gasPrice:', gasPrice);
+
+      rawTx = {
+        from: fromAddress,
+        nonce: web3.utils.toHex(nonce),
+        gasPrice: web3.utils.toHex(gasPrice),
+        gasLimit: web3.utils.toHex( 100000 ),
+        to: contractAddress,
+        value: "0x0",
+        data: funcData,
+        //data: SineoCoin.transfer.getData(walletAddress1, 20, {from: walletAddress2}),
+        chainId: 0x03
+      }
+
+      var pKey = new Buffer(privateKey, 'hex');
+      var tx = new ethereumjs.TX(rawTx);
     });
   });
 }
