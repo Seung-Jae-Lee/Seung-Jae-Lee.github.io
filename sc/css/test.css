@@ -250,8 +250,8 @@ a {
 
 .account_form {
 
-    width:700px;
-    height:600px;
+    width:500px;
+    height:400px;
     background:white;
 
     position:absolute;
@@ -259,9 +259,8 @@ a {
     top:50%;
     left:50%;
 
-
     margin-top:-200px;
-    margin-left:-350px;
+    margin-left:-250px;
 
     border-radius:5px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
