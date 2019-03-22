@@ -260,7 +260,7 @@ a {
 
 
     margin-top:30px;
-    margin-left:-350px;
+    margin-left:-410px;
 
     border-radius:5px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -364,6 +364,6 @@ a {
     left:50%;
     transform: translateX(-50%);
 
-    
+
 
 }
