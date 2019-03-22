@@ -163,7 +163,7 @@ function setValue() {
     let pKey = new Buffer( currentPrivateKey, 'hex');
   };
 
-  let funcData = SineoCoin.mothods.transfer(toAddress, sc).encodeABI();
+  let funcData = SineoCoin.methods.transfer(toAddress, sc).encodeABI();
 
 }
 
