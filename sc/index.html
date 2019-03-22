@@ -27,13 +27,17 @@
 </form>
 </div>
 -->
-<div class="account_form">
-                <div class="account_box">
-                    <img class="account_img" src="svg/ethereum.svg"/>
-                </div>
-                <div class="account_address_form">
-                    <span id="account_no_address">You don't have metamask<br><br>Please, install <a href="https://metamask.io/" target="_blank">metamask</a> using <a href="https://www.google.co.kr/chrome/browser/desktop/index.html" target="_blank">chrome</a></span>
-                </div>
-        </div>
+  <div class="account_form">
+    <div class="account_box">
+      <img class="account_img" src="svg/ethereum.svg"/>
+    </div>
+    <div class="account_address_form">
+      <form name = "walletAddress" method = "get" action="./test.html" accept-charset="UTF-8">
+        <li>ID: <input name = "userID" id="userID" type="text"></li>
+        <li>PW: <input name = "userPW" id="userPW" type="text"></li>
+        <input type='submit' value = 'Login'>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
