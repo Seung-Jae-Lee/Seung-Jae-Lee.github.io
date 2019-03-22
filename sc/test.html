@@ -161,7 +161,9 @@ function setValue() {
 
   const serializeTx = async( SineoCoin, fromAddress, currentPrivateKey, funcData ) => {
     let pKey = new Buffer( currentPrivateKey, 'hex');
-  }
+  };
+
+  let funcData = SineoCoin.mothods.transfer(toAddress, sc).encodeABI();
 
 }
 
