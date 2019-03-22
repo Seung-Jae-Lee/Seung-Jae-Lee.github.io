@@ -251,7 +251,7 @@ a {
 .account_form {
 
     width:500px;
-    height:500px;
+    height:400px;
     background:white;
 
     position:absolute;
@@ -308,7 +308,7 @@ a {
 
     position:absolute;
 
-    top:60.5%;
+    top:42.5%;
     left:50%;
     transform: translateX(-50%);
 
