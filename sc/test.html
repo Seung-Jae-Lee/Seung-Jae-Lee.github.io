@@ -161,21 +161,15 @@ function setValue() {
 
   let funcData = SineoCoin.methods.transfer(toAddress, sc).encodeABI();
 
-  const serializeTx = async( SineoCoin, fromAddress, currentPrivateKey, funcData ) => {
-    let pKey = new Buffer( currentPrivateKey, 'hex');
-    const nonceNumber = await web3.eth.getTransactionCount(fromAddress);
-    const nonce = web3.utils.toHex(nonceNumber);
-    const gasPrice = web3.utils.toHex(web3.eth.gasPrice);
-    const gasLimitHex = web3.utils.toHex(100000);
-    const rawTx = {
-        'nonce': nonce,
-        'gasPrice': gasPrice,
-        'gasLimit': gasLimitHex,
-        'from': fromAddress,
-        'to': toAddress,
-        'data': funcData
-    };
-  };
+  web3.eth.getTransactionCount( fromAddress, function(e,r) {
+    nonce = r;
+    console.log('nonce:', nonce);
+
+    web3.eth.getGasPrice( function(e,r) {
+      gasPrice = r;
+      console.log('gasPrice:', gasPrice);
+    });
+  });
 }
 
 /*
