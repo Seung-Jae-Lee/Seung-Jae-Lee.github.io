@@ -186,8 +186,19 @@ function setValue() {
 
       tx.sign(pKey);
       var serializedTx = tx.serialize().toString('hex');
-      let result = web3.eth.sendSignedTransaction(serializedTx);
-      console.log(result);
+      web3.eth.sendSignedTransaction('0x' + serializedTx, function(err, hash) {
+        if (!err) {
+              document.getElementById('result').innerHTML = 'Transaction id: ' + hash + '<br><span id="pending" style="color:red;">(Pending)</span>';
+              txid = hash;
+              txState = true;
+              console.log('state:',txState);
+              console.log(hash);
+        }
+        else {
+              //txState = false;
+              console.log('transaction error');
+        }
+      });
     });
   });
 }
