@@ -59,7 +59,7 @@
       <li>test wallet1 : 0x3E931d5Fa9E6dE6D311BD32cC584B835AD1e5fa4<span id="testWallet1"></span></li>
       <li>test wallet2 : 0x2C6D92c8034062037064e8626BeDd74BF979817d<span id="testWallet2"></span></li>
       <li>test wallet3 : 0xf3c04c244E12C4B31C80068f0AeD8c64A38c3E2b<span id="testWallet3"></span></li>
-      <br><button onclick="logOut()" id="logout">Log out</button><span id="createWallet"></span>
+      <br><button onclick="logOut()" id="logout">Log out</button><a href='./caTest.html'> create Wallet </a>
     </span>
   </div>
 </div>
@@ -134,7 +134,6 @@ function startApp() {
   document.getElementById('contractAddr').innerHTML = getContractLink(contractAddress);
   document.getElementById('currentWallet').innerHTML = getContractLink(currentWallet);
   document.getElementById('fromAddress').innerHTML = currentWallet;
-  document.getElementById('createWallet').innerHTML = '<a target="_blank" href=./caTest.html>' + create Wallet + '</a>';
 
   timer_balance_update = setInterval( function() {
     getValue();
