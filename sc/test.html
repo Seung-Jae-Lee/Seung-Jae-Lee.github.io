@@ -145,7 +145,7 @@ function startApp() {
       web3.eth.getTransaction(txid, function(e,r) {
         if (r != null && r.blockNumber > 0) {
           document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
-          document.getElementById('pending').style.cssText ='color:green;';
+          document.getElementById('pending').style.cssText ='color:white;';
           txState = false;
         }
       });
@@ -218,7 +218,7 @@ function setValue() {
         if (!err) {
               //document.getElementById('result').innerHTML = 'Transaction id: ' + hash + '<br><span id="pending" style="color:red;">(Pending)</span>';
               document.getElementById('transacID').innerHTML =  hash;
-              document.getElementById('transacState').innerHTML =  '<br><span id="pending" style="color:red;">(Pending)</span>';;
+              document.getElementById('transacState').innerHTML =  '<br><span id="pending" style="color:white;">(Pending)</span>';;
               txid = hash;
               txState = true;
               console.log('state:',txState);
