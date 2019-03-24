@@ -218,7 +218,7 @@ function setValue() {
         if (!err) {
               //document.getElementById('result').innerHTML = 'Transaction id: ' + hash + '<br><span id="pending" style="color:red;">(Pending)</span>';
               document.getElementById('transacID').innerHTML =  hash;
-              document.getElementById('transacState').innerHTML =  '<br><span id="pending" style="color:white;">(Pending)</span>';;
+              document.getElementById('transacState').innerHTML =  '<span id="pending" style="color:white;">(Pending)</span>';;
               txid = hash;
               txState = true;
               console.log('state:',txState);
