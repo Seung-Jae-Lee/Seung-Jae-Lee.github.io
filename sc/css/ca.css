@@ -257,10 +257,10 @@ a {
     position:absolute;
 
     top:50%;
-    left:17%;
+    left:50%;
 
     margin-top:-200px;
-    margin-left:0px;
+    margin-left:-450px;
 
     border-radius:5px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
