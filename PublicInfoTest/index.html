@@ -4,20 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Busan Radiation Place List</title>
 <script type="text/javascript">
-  var doc = GetXMLDom('RadiationPlaceList.xml');
-  var domcnt = GetDomLength("items");
-  var txt = "";
-  for(var i=0; i<cnt; i++)
-  {
-    txt = txt + GetValue("name",i);
-  }
-  document.getElementById("myDiv").innerHTML=txt;
+
 </script>
 </head>
 <body>
 <div>DOM 테스트</div>
 <div>
-    <input type="button" value="XML DOM" onclick="domTest()">
+    <input type="button" value="XML DOM" onclick="GetData()">
 </div>
 result : <div id="result"></div>
 </body>
@@ -25,6 +18,17 @@ result : <div id="result"></div>
 <script type="text/javascript">
 var xmlDoc;
 
+function GetData
+{
+  var doc = GetXMLDom('RadiationPlaceList.xml');
+  var domcnt = GetDomLength("items");
+  var txt = "";
+  for(var i=0; i<cnt; i++)
+  {
+    txt = txt + GetValue("name",i);
+  }
+  document.getElementById("result").innerHTML=txt;
+}
 function GetXmlOBJ
 {
   var xmlhttp = null;
