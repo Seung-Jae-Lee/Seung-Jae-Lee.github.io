@@ -23,11 +23,11 @@ var xmlDoc;
 function getData()
 {
   var doc = getXMLDom('RadiationPlaceList.xml');
-  var domcnt = getDomLength("items");
+  var domcnt = getDomLength("item");
   var txt = "";
   for(var i=0; i<domcnt; i++)
   {
-    txt = txt + getValue("name",i);
+    txt = txt + getValue("lng",i);
   }
   document.getElementById("result").innerHTML=txt;
 }
