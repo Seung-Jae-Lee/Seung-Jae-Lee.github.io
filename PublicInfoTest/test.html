@@ -20,6 +20,28 @@ result : <div id="result"></div>
 <script type="text/javascript">
 function getData()
 {
+  var doc = getXMLDom('RadiationPlaceList.xml');
   alert("click");
+}
+
+function getXmlOBJ()
+{
+  var xmlhttp = null;
+
+  // Mozilla/Safari
+  if (window.XMLHttpRequest) {
+    xmlhttp = new XMLHttpRequest();
+  }
+  else if (window.ActiveXObject) {// IE
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  return xmlhttp;
+}
+
+function getXMLDom(pUrl,pOption,pSearchValue)
+{
+  var xmlhttp = getXmlOBJ();
+  var templateStr = null;
+  var pAsync = false;
 }
 </script>
