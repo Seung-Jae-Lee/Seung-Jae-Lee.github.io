@@ -4,40 +4,39 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Busan Radiation Place List</title>
 <script type="text/javascript">
-   1:
-   2: function domTest() {
-   3:     //1단계. XML 파일 불러오기 -> DOM tree 형성
-   4:     // 2단계. root 노드(엘리먼트) 접근
-   5:     // 3단계. 특정 노드(엘리먼트) 접근
-   6:     // 4단계. 특정 노드(엘리먼트)의 텍스트(노드) 접근
-   7:
-   8:     // Internet Explorer 전용
-   9:     var xmlDoc = new ActiveXObject("Msxml2.DOMDocument.6.0");
-  10:     xmlDoc.load("RadiationPlaceList.xml");
-  11:
-  12:     var root = xmlDoc.documentElement;
-  13:     var str = "";
-  14:     str += "<br>" + root.nodeName + "<br><br>";
-  15:
-  16:     var itemNodes = root.getElementsByTagName("item");
-  17:     // var bookNode = bookNodes[0]
-  18:     for(var i=0; i<itemNodes.length; i++) {
-  19:         var itemNode = itemNodes[i];
-  20:         var lat = itemNode.getAttribute("lat");
-  21:         var lng = itemNode.getElementsByTagName("lng")[0];
-  22:         var locnm = itemNode.getElementsByTagName("locnm")[0];
-  23:         var realnm = itemNode.getElementsByTagName("realNm")[0];
-  24:
-  25:         str += "isbn : " + lat + "<br>"
-  26:              + "제목 : " + lng.text + "<br>"
-  27:              + "저자 : " + locnm.text + "<br>"
-  28:              + "가격 : " + realnm.text + "<br><br>";
-  29:     }
-  30:
-  31:     var divTag = document.getElementById("result");
-  32:     divTag.innerHTML = str;
-          divTag = document.getElementById("test");
-  33: }
+
+function domTest() {
+  //1단계. XML 파일 불러오기 -> DOM tree 형성
+  // 2단계. root 노드(엘리먼트) 접근
+  // 3단계. 특정 노드(엘리먼트) 접근
+  // 4단계. 특정 노드(엘리먼트)의 텍스트(노드) 접근
+
+  // Internet Explorer 전용
+  var xmlDoc = new ActiveXObject("Msxml2.DOMDocument.6.0");
+  xmlDoc.load("RadiationPlaceList.xml");
+
+  var root = xmlDoc.documentElement;
+  var str = "";
+  str += "<br>" + root.nodeName + "<br><br>";
+
+  var itemNodes = root.getElementsByTagName("item");
+  // var bookNode = bookNodes[0]
+  for(var i=0; i<itemNodes.length; i++) {
+  var itemNode = itemNodes[i];
+  var lat = itemNode.getAttribute("lat");
+  var lng = itemNode.getElementsByTagName("lng")[0];
+  var locnm = itemNode.getElementsByTagName("locnm")[0];
+  var realnm = itemNode.getElementsByTagName("realNm")[0];
+
+  str += "isbn : " + lat + "<br>"
+  + "제목 : " + lng.text + "<br>"
+  + "저자 : " + locnm.text + "<br>"
+  + "가격 : " + realnm.text + "<br><br>";
+}
+
+var divTag = document.getElementById("result");
+divTag.innerHTML = str;
+}
 </script>
 </head>
 <body>
