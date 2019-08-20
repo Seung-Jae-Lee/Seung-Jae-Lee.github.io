@@ -43,5 +43,29 @@ function getXMLDom(pUrl,pOption,pSearchValue)
   var xmlhttp = getXmlOBJ();
   var templateStr = null;
   var pAsync = false;
+  if (pOption == "TRUE")
+  {
+    pAsync = true;
+  }
+
+  if (pOption == "POST")
+  {
+    xmlhttp.open("POST",pUrl,pAsync);
+    xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+  }
+  else
+  {
+    xmlhttp.open("GET",pUrl,pAsync);
+  }
+
+  xmlhttp.onreadystatechange = function () {
+    if(xmlhttp.readyState == "4")
+    {
+      xmlDoc = xmlhttp.responseXML;
+    }
+  }
+
+  xmlhttp.send();
+  return xmlDoc;
 }
 </script>
