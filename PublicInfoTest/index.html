@@ -14,6 +14,7 @@ result : <div id="result"></div>
 </html>
 <script type="text/javascript">
 var xmlDoc;
+
 function GetXmlOBJ
 {
   var xmlhttp = null;
@@ -27,4 +28,89 @@ function GetXmlOBJ
   }
   return xmlhttp;
 }
+
+function GetXMLDom(pUrl,pOption,pSearchValue)
+{
+  var xmlhttp = GetXmlOBJ();
+  var templateStr = null;
+  var pAsync = false;
+
+  if (pOption == "TRUE")
+  {
+    pAsync = true;
+  }
+
+  if (pOption == "POST")
+  {
+    xmlhttp.open("POST",pUrl,pAsync);
+    xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+  }
+  else
+  {
+    xmlhttp.open("GET",pUrl,pAsync);
+  }
+
+  xmlhttp.onreadystatechange = function () {
+    if(xmlhttp.readyState == "4")
+    {
+      xmlDoc = xmlhttp.responseXML;
+    }
+  }
+
+  xmlhttp.send();
+  return xmlDoc;
+}
+
+function GetDomLength(pName,pDom)
+{
+  try
+  {
+    return pDom.getElementsByTagName(pName).length;
+  }
+  catch (e)
+  {
+    return xmlDoc.getElementsByTagName(pName).length;
+  }
+}
+
+function GetValue(pName,pIndex,pAttr)
+{
+  if (typeof pIndex == "undefined" || pIndex =="")
+  {
+    pIndex = 0;
+  }
+
+  x = xmlDoc.getElementsByTagName(pName);
+
+  if (typeof pAttr == "undefined" || pAttr =="")
+  {
+    if(x[pIndex].hasChildNodes())
+    {
+      v = x[pIndex].childNodes[0].nodeValue;
+    }
+    else
+    {
+      v = "";
+    }
+  }
+  else
+  {
+    v = x[pIndex].getAttribute(pAttr);
+  }
+  return v;
+}
+
+function GetXMLText(pCode,pValue)
+{
+  var xDom = GetXMLDom('code_test.xml');
+  var cnt = GetDomLength(pCode,xDom);
+  var strHTML = ""  ;
+  for(var i=0;i<cnt;i++)
+  {
+    if(GetValue(pCode,i,"code") == pValue)
+    strHTML = GetValue(pCode,i,"text");
+  }
+  return strHTML;
+}
+
 </script>
