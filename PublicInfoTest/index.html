@@ -22,20 +22,20 @@ function domTest() {
   var itemNodes = root.getElementsByTagName("item");
   // var bookNode = bookNodes[0]
   for(var i=0; i<itemNodes.length; i++) {
-  var itemNode = itemNodes[i];
-  var lat = itemNode.getAttribute("lat");
-  var lng = itemNode.getElementsByTagName("lng")[0];
-  var locnm = itemNode.getElementsByTagName("locnm")[0];
-  var realnm = itemNode.getElementsByTagName("realNm")[0];
+    var itemNode = itemNodes[i];
+    var lat = itemNode.getAttribute("lat");
+    var lng = itemNode.getElementsByTagName("lng")[0];
+    var locnm = itemNode.getElementsByTagName("locnm")[0];
+    var realnm = itemNode.getElementsByTagName("realNm")[0];
 
-  str += "isbn : " + lat + "<br>"
-  + "제목 : " + lng.text + "<br>"
-  + "저자 : " + locnm.text + "<br>"
-  + "가격 : " + realnm.text + "<br><br>";
-}
+    str += "isbn : " + lat + "<br>"
+    + "제목 : " + lng.text + "<br>"
+    + "저자 : " + locnm.text + "<br>"
+    + "가격 : " + realnm.text + "<br><br>";
+  }
 
-var divTag = document.getElementById("result");
-divTag.innerHTML = str;
+  var divTag = document.getElementById("result");
+  divTag.innerHTML = str;
 }
 </script>
 </head>
@@ -44,6 +44,6 @@ divTag.innerHTML = str;
 <div>
     <input type="button" value="XML DOM" onclick="domTest()">
 </div>
-<div id="result"></div>
+result : <div id="result"></div>
 </body>
 </html>
