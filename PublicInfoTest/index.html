@@ -25,7 +25,7 @@ function getData()
   var doc = getXMLDom('RadiationPlaceList.xml');
   var domcnt = getDomLength("items");
   var txt = "";
-  for(var i=0; i<cnt; i++)
+  for(var i=0; i<domcnt; i++)
   {
     txt = txt + getValue("name",i);
   }
