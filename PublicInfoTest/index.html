@@ -3,6 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Busan Radiation Place List</title>
+<script type="text/javascript">
+  var doc = GetXMLDom('RadiationPlaceList.xml');
+  var domcnt = GetDomLength("items");
+  var txt = "";
+  for(var i=0; i<cnt; i++)
+  {
+    txt = txt + GetValue("name",i);
+  }
+  document.getElementById("myDiv").innerHTML=txt;
+</script>
 </head>
 <body>
 <div>DOM 테스트</div>
