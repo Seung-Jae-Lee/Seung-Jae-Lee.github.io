@@ -18,7 +18,7 @@ function domTest() {
   var root = xmlDoc.documentElement;
   var str = "";
   str += "<br>" + root.nodeName + "<br><br>";
-
+/*
   var itemNodes = root.getElementsByTagName("item");
   // var bookNode = bookNodes[0]
   for(var i=0; i<itemNodes.length; i++) {
@@ -33,7 +33,7 @@ function domTest() {
     + "저자 : " + locnm.text + "<br>"
     + "가격 : " + realnm.text + "<br><br>";
   }
-
+*/
   var divTag = document.getElementById("result");
   divTag.innerHTML = str;
 }
