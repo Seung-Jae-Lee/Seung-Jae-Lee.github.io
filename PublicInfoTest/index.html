@@ -19,19 +19,19 @@
   13:     var str = "";
   14:     str += "<br>" + root.nodeName + "<br><br>";
   15:
-  16:     var bookNodes = root.getElementsByTagName("book");
+  16:     var itemNodes = root.getElementsByTagName("item");
   17:     // var bookNode = bookNodes[0]
-  18:     for(var i=0; i<bookNodes.length; i++) {
-  19:         var bookNode = bookNodes[i];
-  20:         var isbn = bookNode.getAttribute("isbn");
-  21:         var titleNode = bookNode.getElementsByTagName("title")[0];
-  22:         var authorNode = bookNode.getElementsByTagName("author")[0];
-  23:         var priceNode = bookNode.getElementsByTagName("price")[0];
+  18:     for(var i=0; i<itemNodes.length; i++) {
+  19:         var itemNode = itemNodes[i];
+  20:         var lat = itemNode.getAttribute("lat");
+  21:         var lng = itemNode.getElementsByTagName("lng")[0];
+  22:         var locnm = itemNode.getElementsByTagName("locnm")[0];
+  23:         var realnm = itemNode.getElementsByTagName("realNm")[0];
   24:
-  25:         str += "isbn : " + isbn + "<br>"
-  26:              + "제목 : " + titleNode.text + "<br>"
-  27:              + "저자 : " + authorNode.text + "<br>"
-  28:              + "가격 : " + priceNode.text + "<br><br>";
+  25:         str += "isbn : " + lat + "<br>"
+  26:              + "제목 : " + lng.text + "<br>"
+  27:              + "저자 : " + locnm.text + "<br>"
+  28:              + "가격 : " + realnm.text + "<br><br>";
   29:     }
   30:
   31:     var divTag = document.getElementById("result");
