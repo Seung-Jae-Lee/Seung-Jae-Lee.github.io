@@ -18,18 +18,18 @@ result : <div id="result"></div>
 <script type="text/javascript">
 var xmlDoc;
 
-function GetData
+function getData
 {
-  var doc = GetXMLDom('RadiationPlaceList.xml');
-  var domcnt = GetDomLength("items");
+  var doc = getXMLDom('RadiationPlaceList.xml');
+  var domcnt = getDomLength("items");
   var txt = "";
   for(var i=0; i<cnt; i++)
   {
-    txt = txt + GetValue("name",i);
+    txt = txt + getValue("name",i);
   }
   document.getElementById("result").innerHTML=txt;
 }
-function GetXmlOBJ
+function getXmlOBJ
 {
   var xmlhttp = null;
 
@@ -43,9 +43,9 @@ function GetXmlOBJ
   return xmlhttp;
 }
 
-function GetXMLDom(pUrl,pOption,pSearchValue)
+function getXMLDom(pUrl,pOption,pSearchValue)
 {
-  var xmlhttp = GetXmlOBJ();
+  var xmlhttp = getXmlOBJ();
   var templateStr = null;
   var pAsync = false;
 
@@ -75,7 +75,7 @@ function GetXMLDom(pUrl,pOption,pSearchValue)
   return xmlDoc;
 }
 
-function GetDomLength(pName,pDom)
+function getDomLength(pName,pDom)
 {
   try
   {
@@ -87,7 +87,7 @@ function GetDomLength(pName,pDom)
   }
 }
 
-function GetValue(pName,pIndex,pAttr)
+function getValue(pName,pIndex,pAttr)
 {
   if (typeof pIndex == "undefined" || pIndex =="")
   {
@@ -114,15 +114,15 @@ function GetValue(pName,pIndex,pAttr)
   return v;
 }
 
-function GetXMLText(pCode,pValue)
+function getXMLText(pCode,pValue)
 {
-  var xDom = GetXMLDom('code_test.xml');
-  var cnt = GetDomLength(pCode,xDom);
+  var xDom = getXMLDom('code_test.xml');
+  var cnt = getDomLength(pCode,xDom);
   var strHTML = ""  ;
   for(var i=0;i<cnt;i++)
   {
-    if(GetValue(pCode,i,"code") == pValue)
-    strHTML = GetValue(pCode,i,"text");
+    if(getValue(pCode,i,"code") == pValue)
+    strHTML = getValue(pCode,i,"text");
   }
   return strHTML;
 }
