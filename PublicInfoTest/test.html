@@ -21,6 +21,37 @@ var link = "http://opendata.busan.go.kr/openapi/service/EnvironmentalRadiationIn
 var key = "4KBLkLFia5DFZivxgcFUJesrUcnYOXnaS4jSqWAcnnhy8qGljIsNnl3wE2BjpbdFwSU70dbproeBjstLquF7sg%3D%3D";
 var msg = link + key;
 
+function getXMLHttpRequest()
+{
+  //브라우저가 IE일 경우 XMLHttpRequest 객체 구하기
+  if (window.ActiveXObject)
+  { //Msxml2.XMLHTTP가 신버전이어서 먼저 시도
+    try
+    {
+      return new ActiveXObject("Msxml2.XMLHTTP");
+    }
+    catch(e)
+    {
+      try
+      {
+        return new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      catch(e1)
+      {
+        return null;
+      }
+    } //IE 외 파이어폭스 오페라 같은 브라우저에서 XMLHttpRequest 객체 구하기
+  }
+  else if (window.XMLHttpRequest)
+  {
+    return new XMLHttpRequest();
+  }
+  else
+  {
+    return null;
+  }
+}
+
 function getData()
 {
   httpRequest = getXMLHttpRequest();
