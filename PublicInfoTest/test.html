@@ -18,10 +18,35 @@ result : <div id="result"></div>
 
 <script type="text/javascript">
 
+var httpRequest = null;
 var xmlDoc;
-var link = 'http://opendata.busan.go.kr/openapi/service/EnvironmentalRadiationInfoService/getEnvironmentalRadiationPlaceList?ServiceKey=';
-var key = '4KBLkLFia5DFZivxgcFUJesrUcnYOXnaS4jSqWAcnnhy8qGljIsNnl3wE2BjpbdFwSU70dbproeBjstLquF7sg%3D%3D';
+var link = "http://opendata.busan.go.kr/openapi/service/EnvironmentalRadiationInfoService/getEnvironmentalRadiationPlaceList?ServiceKey=";
+var key = "4KBLkLFia5DFZivxgcFUJesrUcnYOXnaS4jSqWAcnnhy8qGljIsNnl3wE2BjpbdFwSU70dbproeBjstLquF7sg%3D%3D";
 var msg = link + key;
 
+function getData()
+{
+  httpRequest = getXMLHttpRequest();
+  httpRequest.onreadystatechange = callbackFunction;
+  httpRequest.open("GET",msg,true);
+  httpRequest.send(null)
+}
 
+function callbackFunction()
+{
+  if(httpRequest.readyState == 1 || httpRequest.readyState == 2 || httpRequest.readyState ==3 )
+  { //화면에 작업 중 메시지 출력
+  }
+  else if(httpRequest.readyState == 4)
+  {
+    if(httpRequest.status == 200)
+    {
+      //서버 응답 결과에 따라 알맞은 작업 처리
+    }
+    else
+    {
+      alert("문제 발생:" + httpRequest.status);
+    } 
+  }
+}
 </script>
