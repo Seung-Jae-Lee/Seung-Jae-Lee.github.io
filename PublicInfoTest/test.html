@@ -26,7 +26,7 @@ var msg = link + key;
 function getData()
 {
   //var doc = getXMLDom('RadiationPlaceList.xml');
-  var doc = getXMLDom(msg, 'GET', 'true');
+  var doc = getXMLDom(msg, 'GET', 'TRUE');
   var domcnt = getDomLength("item");
   var txt = "";
   for(var i=0; i<domcnt; i++)
@@ -55,7 +55,7 @@ function getXMLDom(pUrl,pOption,pSearchValue)
   var templateStr = null;
   var pAsync = false;
 
-  if (pSearchValue == "true")
+  if (pSearchValue == "TRUE")
   {
     pAsync = true;
   }
