@@ -25,8 +25,8 @@ var msg = link + key;
 
 function getData()
 {
-  //var doc = getXMLDom('RadiationPlaceList.xml');
-  var doc = getXMLDom(msg, 'POST');
+  var doc = getXMLDom('RadiationPlaceList.xml');
+  //var doc = getXMLDom(msg, 'POST');
   var domcnt = getDomLength("item");
   var txt = "";
   for(var i=0; i<domcnt; i++)
