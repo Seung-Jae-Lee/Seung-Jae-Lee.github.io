@@ -56,7 +56,7 @@ function getData()
 {
   httpRequest = getXMLHttpRequest();
   httpRequest.onreadystatechange = callbackFunction;
-  httpRequest.open("GET",msg,true);
+  httpRequest.open("GET",'RadiationPlaceList.xml',true);
   httpRequest.send(null)
 }
 
