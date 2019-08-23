@@ -57,7 +57,7 @@ function getData()
   httpRequest = getXMLHttpRequest();
   httpRequest.onreadystatechange = callbackFunction;
   httpRequest.open("GET",'http://opendata.busan.go.kr/openapi/service/EnvironmentalRadiationInfoService/getEnvironmentalRadiationPlaceList?ServiceKey=4KBLkLFia5DFZivxgcFUJesrUcnYOXnaS4jSqWAcnnhy8qGljIsNnl3wE2BjpbdFwSU70dbproeBjstLquF7sg%3D%3D');
-  httpRequest.send(null)
+  httpRequest.send()
 }
 
 function callbackFunction()
